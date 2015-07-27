@@ -8,7 +8,15 @@
 </head>
 <body>
   <div id="user-nav">
+  <span>The Bookstore</span>
+   <%= link_to "HOME", root_path %>
+ 
     <% if user_signed_in? %>
+    <div>
+      <img src="">
+      Cart:<%= current_user.admin? %>
+    </div>
+
       Logged in as <strong><%= current_user.email %></strong>.
       <%= link_to 'Edit profile', edit_user_registration_path %> |
       <%= link_to "Logout", destroy_user_session_path, method: :delete %>

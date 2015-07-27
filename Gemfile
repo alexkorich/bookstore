@@ -16,6 +16,11 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'devise'
 
 gem 'cancancan', '~> 1.10'
+gem 'aasm'
+gem "haml-rails", "~> 0.9"
+gem 'carrierwave'
+gem 'kaminari'
+gem 'mini_magick'
 
 gem "omniauth-facebook"
 # Use jquery as the JavaScript library
