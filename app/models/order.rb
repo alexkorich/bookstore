@@ -17,8 +17,7 @@ class Order < ActiveRecord::Base
     end
 
     event :delivered do
-      transitions :from => :in_delivery
-    end, :to => :delivered
+      transitions :from => :in_delivery, :to => :delivered
     end
     event :cancel do
       transitions :from => [:in_queue, :in_delivery], :to => :canceled
@@ -33,10 +32,18 @@ class Order < ActiveRecord::Base
   has_one :shipping_adress, class_name: "Adress"
   validates :total_price, :state, :completed_date, presence:true
 	def total_price
-
+    a=0
+    self.order_items.each do |item|
+      
+     a+=item.price*item.quantity
+    end
+    a
 	end
 
 	def add_book (book)
-    self<<BookItem.new(book)
+
+    # check, if there are item with that book
+  # else
+    self.order_items<<OrderItem.new(book:book, quantity:1, price:book.price)
 	end
 end
