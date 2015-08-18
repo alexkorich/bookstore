@@ -1,6 +1,9 @@
-require "features/features_spec_helper"
+require 'features/features_spec_helper'
 
-feature "access to admin panel" do
-	scenario "admin enter pass and logs in" do
-	end
+
+describe 'home page' do
+  it 'welcomes the user' do
+    visit '/'
+    expect(page).to have_content('The Bookstore')
+  end
 end

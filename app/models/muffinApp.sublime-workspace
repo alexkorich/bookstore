@@ -1,0 +1,567 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"click",
+				"click_button"
+			],
+			[
+				"firs",
+				"first_course_dish_id"
+			],
+			[
+				"val",
+				"valid_attributes"
+			],
+			[
+				"f",
+				"fun	Function"
+			],
+			[
+				"first",
+				"first_course_dishes"
+			],
+			[
+				"b",
+				"br"
+			],
+			[
+				"show",
+				"show_by_day"
+			],
+			[
+				"Fa",
+				"FactoryGirl"
+			],
+			[
+				"na",
+				"name"
+			],
+			[
+				"ass",
+				"association"
+			],
+			[
+				"F",
+				"FirstCourseDish"
+			],
+			[
+				"par",
+				"params"
+			],
+			[
+				"or",
+				"order"
+			],
+			[
+				"dr",
+				"drink"
+			],
+			[
+				"pa",
+				"params"
+			],
+			[
+				"e",
+				"else	only else	erb"
+			],
+			[
+				"li",
+				"link_to	create a link	erb"
+			],
+			[
+				"se",
+				"second_course_dishes"
+			],
+			[
+				"has",
+				"has_items"
+			],
+			[
+				"fi",
+				"first_course_dish"
+			],
+			[
+				"req",
+				"require"
+			],
+			[
+				"s",
+				"span	Tag"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 243.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"erb",
+				"Snippet: end (ERB)"
+			]
+		],
+		"width": 409.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/korich/Desktop/muffinApp",
+		"/home/korich/Desktop/muffinApp/app"
+	],
+	"file_history":
+	[
+		"/home/korich/Desktop/muffinApp/app/models/drink.rb",
+		"/home/korich/Desktop/muffinApp/app/models/dish.rb",
+		"/home/korich/Desktop/muffinApp/app/controllers/application_controller.rb",
+		"/home/korich/Desktop/muffinApp/config/routes.rb",
+		"/home/korich/Desktop/muffinApp/spec/features/user_sees_weekdays_spec.rb",
+		"/home/korich/Desktop/muffinApp/spec/factories/menus.rb",
+		"/etc/modprobe.d/alsa-base.conf",
+		"/home/korich/Desktop/muffinApp/app/models/first_course_dish.rb",
+		"/home/korich/Desktop/muffinApp/app/models/second_course_dish.rb",
+		"/home/korich/Desktop/muffinApp/app/controllers/admin/dashboard_controller.rb",
+		"/home/korich/Desktop/muffinApp/1.txt",
+		"/home/korich/Desktop/muffinApp/Gemfile",
+		"/home/korich/Desktop/muffinApp/spec/features/user_edits_profile_spec.rb",
+		"/home/korich/Desktop/muffinApp/spec/features/guest_spec.rb",
+		"/home/korich/Desktop/muffinApp/spec/controllers/admin/dashboard_controller_spec.rb",
+		"/home/korich/Desktop/muffinApp/spec/features/user_spec.rb",
+		"/home/korich/Desktop/muffinApp/app/controllers/users_controller.rb",
+		"/home/korich/Desktop/muffinApp/app/controllers/dishes_controller.rb",
+		"/home/korich/Desktop/muffinApp/app/controllers/menus_controller.rb",
+		"/home/korich/Desktop/muffinApp/spec/controllers/orders_controller_spec.rb",
+		"/home/korich/Desktop/muffinApp/app/controllers/orders_controller.rb",
+		"/home/korich/Desktop/muffinApp/spec/rails_helper.rb",
+		"/home/korich/Desktop/muffinApp/app/views/admin/dashboard/index.html.haml",
+		"/home/korich/Desktop/muffinApp/app/controllers/admin/orders_controller.rb",
+		"/home/korich/Desktop/muffinApp/app/controllers/admin/menus_controller.rb",
+		"/home/korich/Desktop/muffinApp/app/controllers/admin/dishes_controller.rb",
+		"/home/korich/Desktop/muffinApp/spec/controllers/users_controller_spec.rb",
+		"/home/korich/Desktop/muffinApp/spec/controllers/dishes_controller_spec.rb",
+		"/home/korich/Desktop/muffinApp/spec/routing/users_routing_spec.rb",
+		"/home/korich/Desktop/muffinApp/app/views/admin/orders/show.html.haml",
+		"/home/korich/Desktop/muffinApp/app/models/ability.rb",
+		"/home/korich/Desktop/muffinApp/spec/routing/dishes_routing_spec.rb",
+		"/home/korich/Desktop/muffinApp/spec/models/ability_spec.rb",
+		"/home/korich/Desktop/muffinApp/app/views/admin/layouts/application.html.erb",
+		"/home/korich/Desktop/muffinApp/app/views/orders/index.html.haml",
+		"/home/korich/Desktop/muffinApp/app/views/admin/orders/show_user.haml",
+		"/home/korich/Desktop/muffinApp/app/views/admin/users/index.html.haml",
+		"/home/korich/Desktop/muffinApp/app/views/admin/dishes/index.html.haml",
+		"/home/korich/Desktop/muffinApp/app/views/admin/orders/show_by_day.haml",
+		"/home/korich/Desktop/muffinApp/app/views/orders/show.html.haml",
+		"/home/korich/Desktop/muffinApp/app/views/admin/orders/index.html.haml",
+		"/home/korich/Desktop/muffinApp/app/views/menus/index.html.erb",
+		"/home/korich/Desktop/muffinApp/app/views/drinks/show.html.haml",
+		"/home/korich/Desktop/muffinApp/app/views/menus/show.html.haml",
+		"/home/korich/Desktop/muffinApp/app/views/orders/index.json.jbuilder",
+		"/home/korich/Desktop/muffinApp/app/models/order.rb",
+		"/home/korich/Desktop/muffinApp/spec/models/dish_spec.rb",
+		"/home/korich/Desktop/muffinApp/app/views/layouts/application.html.erb",
+		"/home/korich/Desktop/muffinApp/app/assets/javascripts/lil.js",
+		"/home/korich/Desktop/muffinApp/app/assets/javascripts/application.js",
+		"/home/korich/Desktop/muffinApp/app/assets/stylesheets/application.scss",
+		"/home/korich/Desktop/muffinApp/app/controllers/admin/users_controller.rb",
+		"/home/korich/Desktop/muffinApp/spec/models/user_spec.rb",
+		"/home/korich/Desktop/muffinApp/spec/models/ability.rb",
+		"/home/korich/Desktop/muffinApp/spec/factories/users.rb",
+		"/home/korich/Desktop/muffinApp/spec/features/user_features.rb",
+		"/home/korich/Desktop/muffinApp/spec/features/features_test_helper.rb",
+		"/home/korich/Desktop/muffinApp/spec/features/guest.rb",
+		"/home/korich/Desktop/muffinApp/app/models/menu.rb",
+		"/home/korich/Desktop/muffinApp/db/schema.rb",
+		"/home/korich/Desktop/muffinApp/bin/rails",
+		"/home/korich/Desktop/muffinApp/spec/factories/drinks.rb",
+		"/home/korich/Desktop/muffinApp/spec/models/order_spec.rb",
+		"/home/korich/Desktop/muffinApp/spec/factories/dishes.rb",
+		"/home/korich/Desktop/muffinApp/spec/models/menu_spec.rb",
+		"/home/korich/Desktop/muffinApp/spec/factories/first_course_dishes.rb",
+		"/home/korich/Desktop/muffinApp/spec/factories/second_course_dishes.rb",
+		"/home/korich/Desktop/muffinApp/spec/models/first_course_dishes.rb",
+		"/home/korich/Desktop/muffinApp/config/application.rb",
+		"/home/korich/Desktop/muffinApp/app/models/user.rb",
+		"/home/korich/Desktop/muffinApp/app/views/menus/menu_first",
+		"/home/korich/Desktop/muffinApp/app/views/orders/_form.html.haml",
+		"/home/korich/Desktop/Untitled Document",
+		"/home/korich/Desktop/muffinApp/config/initializers/rails_admin.rb",
+		"/home/korich/Desktop/muffinApp/config/initializers/devise.rb",
+		"/home/korich/Desktop/muffinApp/app/views/menus/index.json.jbuilder",
+		"/home/korich/Desktop/muffinApp/app/views/dishes/_form.html.haml",
+		"/home/korich/Desktop/muffinApp/app/controllers/home_controller.rb",
+		"/home/korich/Desktop/muffinApp/app/views/menus/_form.html.haml",
+		"/home/korich/Desktop/muffinApp/app/views/devise/registrations/edit.html.erb",
+		"/home/korich/Desktop/muffinApp/app/views/devise/registrations/new.html.erb",
+		"/home/korich/Desktop/bookstore/config/routes.rb",
+		"/home/korich/Desktop/bookstore/config/database.yml",
+		"/home/korich/Desktop/muffinApp/app/views/menus/index.html.haml",
+		"/home/korich/Desktop/muffinApp/config/database.yml",
+		"/home/korich/Desktop/muffinApp/config/environments/development.rb",
+		"/home/korich/gedit",
+		"/home/korich/Desktop/muffinApp/spec/routing/menus_routing_spec.rb",
+		"/home/korich/Desktop/muffinApp/app/controllers/dish_controller.rb",
+		"/home/korich/Desktop/muffinApp/app/controllers/drink_controller.rb",
+		"/home/korich/Desktop/bookstore/app/models/order.rb",
+		"/home/korich/Desktop/bookstore/db/schema.rb",
+		"/home/korich/Desktop/muffinApp/db/migrate/20150731092231_create_users.rb",
+		"/home/korich/Desktop/muffinApp/models-description.txt",
+		"/home/korich/Desktop/bookstore/spec/features/admin_panel_spec.rb",
+		"/home/korich/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/korich/Desktop/muffinApp/db/migrate/20150731134409_remove_column.rb",
+		"/home/korich/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/korich/Desktop/muffinApp/db/migrate/20150731115452_drop_orders_table.rb",
+		"/home/korich/Desktop/bookstore/app/models/adress.rb",
+		"/home/korich/Desktop/bookstore/app/models/customer.rb",
+		"/home/korich/Desktop/muffinApp/db/migrate/20150731102346_add_role_to_users.rb",
+		"/home/korich/Desktop/bookstore/app/models/order_item.rb",
+		"/home/korich/Desktop/mybags/ZhiBags/client/js/main.js",
+		"/home/korich/Desktop/ZhiBags/client/js/Bag.js",
+		"/home/korich/Desktop/bookstore/app/models/credit_card.rb",
+		"/home/korich/Desktop/mybags/ZhiBags/client/js/test.js",
+		"/home/korich/Desktop/mybags/ZhiBags/client/test.html",
+		"/home/korich/Desktop/bookstore/spec/controllers/customers_controller_spec.rb",
+		"/home/korich/Desktop/bookstore/app/models/user.rb",
+		"/home/korich/Desktop/bookstore/1.txt",
+		"/home/korich/Desktop/bookstore/Gemfile",
+		"/home/korich/Desktop/bookstore/spec/features/features_spec_helper.rb",
+		"/home/korich/Desktop/bookstore/spec/rails_helper.rb",
+		"/home/korich/Desktop/bookstore/spec/spec_helper.rb",
+		"/home/korich/Desktop/bookstore/app/views/layouts/application.html.erb",
+		"/home/korich/Desktop/bookstore/app/models/rating.rb",
+		"/home/korich/Desktop/bookstore/db/migrate/20150728190828_add_aasm_state_to_orders.rb",
+		"/home/korich/Desktop/bookstore/app/controllers/books_controller.rb",
+		"/home/korich/Desktop/ZhiBags/client/js/QuotesCollection.js",
+		"/home/korich/Desktop/ZhiBags/client/js/Quote.js",
+		"/home/korich/Desktop/ZhiBags/quotes.json",
+		"/home/korich/Desktop/ZhiBags/client/js/backbone collection.js",
+		"/home/korich/Desktop/ZhiBags/client/js/main.js",
+		"/home/korich/Desktop/bookstore/app/views/home/index.html.erb",
+		"/home/korich/Desktop/bookstore/app/controllers/home_controller.rb",
+		"/home/korich/Desktop/bookstore/config/environments/development.rb",
+		"/home/korich/Desktop/kkk/config/database.yml"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"build",
+			"login",
+			" to",
+			"to",
+			"second",
+			"first",
+			", valid_session",
+			"post",
+			"book",
+			"  ",
+			"    ",
+			"   ",
+			"  ",
+			"   ",
+			"  ",
+			" it \"routes to \" do",
+			" end",
+			"   \n",
+			" end",
+			"devise/registrations#new",
+			"/users/sign_up",
+			"post",
+			"get",
+			"devise#create",
+			"menu",
+			" menu",
+			"dish",
+			"post",
+			"Post",
+			"post",
+			"Post",
+			"post",
+			"ability",
+			"subject",
+			"d",
+			"irst_course",
+			"first",
+			"\"",
+			"first",
+			"menu",
+			"br",
+			"r",
+			"d",
+			"td",
+			"b",
+			"div",
+			"<%",
+			"%>",
+			"end",
+			"namespace :admin do",
+			"end",
+			"validate_presence_of",
+			"must",
+			"create",
+			"second_course_dishes",
+			"first",
+			"organization",
+			"user",
+			"menus",
+			"user",
+			"create",
+			"name",
+			"\"",
+			"m",
+			"|| ",
+			"&&",
+			"first",
+			"owner",
+			"input",
+			"association",
+			".association",
+			".association ",
+			"products_sections",
+			"id",
+			"production",
+			"my_database",
+			"user",
+			"User",
+			"user",
+			"User",
+			"user",
+			"User",
+			"user",
+			"User",
+			"user",
+			"User",
+			"user",
+			"@user",
+			"User.",
+			"user",
+			"User",
+			"users",
+			"Users",
+			"empty",
+			"tab",
+			"tabS",
+			"indent",
+			"race",
+			"order",
+			"fea",
+			"feat",
+			"gedit",
+			"subl",
+			"dre ",
+			"dre",
+			"snoop",
+			"Бумбокс",
+			"beas"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"sublime_text"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 112.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 112.0
+	},
+	"pinned_build_system": "",
+	"project": "muffinApp.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"ro",
+				"config/routes.rb"
+			],
+			[
+				"a",
+				"app/models/ability.rb"
+			],
+			[
+				"abi",
+				"app/models/ability.rb"
+			],
+			[
+				"g",
+				"Gemfile"
+			],
+			[
+				"user",
+				"spec/models/user_spec.rb"
+			],
+			[
+				"spec",
+				"spec/models/user_spec.rb"
+			],
+			[
+				"ge",
+				"Gemfile"
+			],
+			[
+				"custo",
+				"app/models/customer.rb"
+			],
+			[
+				"geml",
+				"Gemfile"
+			],
+			[
+				"rou",
+				"config/routes.rb"
+			],
+			[
+				"de",
+				"config/environments/development.rb"
+			],
+			[
+				"",
+				"Gemfile"
+			],
+			[
+				"spec_",
+				"spec/spec_helper.rb"
+			],
+			[
+				"applic",
+				"config/application.rb"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 355.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
