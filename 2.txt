@@ -1,2 +1,0 @@
-== 20150722232813 AddDeviseToCustomers: migrating =============================
--- change_table(:customers)
