@@ -1,7 +1,7 @@
 class Order < ActiveRecord::Base
   include AASM
 
- aasm do
+ aasm column: "state" do
     state :in_progress, :initial => true
     state :in_queue
     state :in_delivery
@@ -40,10 +40,14 @@ class Order < ActiveRecord::Base
     a
 	end
 
-	def add_book (book)
-
-    # check, if there are item with that book
-  # else
-    self.order_items<<OrderItem.new(book:book, quantity:1, price:book.price)
-	end
+	def add_book(book)
+    i=self.order_items.find_by(book: book)
+  if i 
+    i.quantity+=1
+    
+      else
+    i=self.order_items.build.OrderItem.new(price:book.price, quantity:1, book:book)
+  end
+  i.save
+ 	end
 end

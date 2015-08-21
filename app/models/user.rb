@@ -7,19 +7,21 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
-
-has_many :orders
+  has_many :orders
   has_many :ratings
   
   def create_order
-
+    self.orders<<Order.new
   end
-  def current_order
 
-  # status=in_progress
+  def current_order
+    @current_order=self.orders.find_or_create_by(state:"in_progress")
+    
   end
 def self.from_omniauth(auth)
   puts "LLLLLLLLLLLLLLLL"
+
+  # split name
   puts auth.info
   where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
     user.email = auth.email
