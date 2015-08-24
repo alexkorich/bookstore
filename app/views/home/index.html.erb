@@ -1,5 +1,11 @@
-<div style="position:fixed;  float: right; text-align: right; height:70px; width:30px">Categories:
-
-<%= render 'home/categories'  %>
+<div >Categories:
 </div>
-<%= bestsellers %>
+<%= render 'home/categories', html: {position:'fixed',  float: 'right', height:'70px', width:'30px'}%>
+</div>
+<h2>Bestsellers</h2>
+<% bestsellers.each do |book| %>
+<%=book.title %>
+<%=book.price  %>
+<%= image_tag book.cover.thumb %>
+
+<% end %>

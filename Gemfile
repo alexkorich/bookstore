@@ -19,7 +19,7 @@ gem "haml-rails", "~> 0.9"
 gem 'carrierwave'
 gem 'kaminari'
 gem 'mini_magick'
-
+gem 'wicked'
 gem "omniauth-facebook"
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -47,7 +47,7 @@ group :development, :test do
  
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
+  gem "erb2haml"
 
   gem 'rspec-rails'
 end

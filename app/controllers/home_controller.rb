@@ -4,8 +4,8 @@ class HomeController < ApplicationController
   	
   end
 
-  def bestsellers
-    Book.where()
-    
-  end
+    def bestsellers
+    Book.all.limit(5)
+    end
+
 end
