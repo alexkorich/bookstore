@@ -6,9 +6,16 @@ class OrderCheckoutController < ApplicationController
   def show
     @user = current_user
     case step
-    when :find_friends
+    when :adress
       @friends = @user.find_friends
     end
+  when :delivery
+      @friends = @user.find_friends
+    end
+    when :payment
+      @friends = @user.find_friends
+    end
+
     render_wizard
   end
 end
