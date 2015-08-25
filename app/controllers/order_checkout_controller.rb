@@ -15,7 +15,7 @@ class OrderCheckoutController < ApplicationController
     when :payment
       @friends = @user.find_friends
     end
-
+  end
     render_wizard
   end
 end
