@@ -184,6 +184,9 @@ GEM
       remotipart (~> 1.0)
       safe_yaml (~> 1.0)
       sass-rails (>= 4.0, < 6)
+    rails_admin_aasm (0.0.5)
+      aasm
+      rails_admin
     railties (4.2.3)
       actionpack (= 4.2.3)
       activesupport (= 4.2.3)
@@ -278,6 +281,7 @@ DEPENDENCIES
   pg
   rails (= 4.2.3)
   rails_admin
+  rails_admin_aasm
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

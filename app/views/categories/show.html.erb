@@ -1,4 +1,4 @@
 <%=@category.title.capitalize  %> books:
-<% @category.books.each do %>
-<%= book.name %>
+<% @category.books.each do |book| %>
+<%= book.title %>
 <% end %>

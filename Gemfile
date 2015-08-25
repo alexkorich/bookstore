@@ -20,6 +20,7 @@ gem 'carrierwave'
 gem 'kaminari'
 gem 'mini_magick'
 gem 'wicked'
+gem 'rails_admin_aasm'
 gem "omniauth-facebook"
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
