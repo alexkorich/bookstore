@@ -61,6 +61,25 @@ class BooksController < ApplicationController
     end
   end
 
+  def add_to_cart
+    cart=current_user.current_order
+    cart.add_book(Book.find(params[:id]))
+    respond_to do |format|
+      if cart.save
+        format.html { redirect_to :back, notice: 'Book added!' }
+        format.json { render :show, status: :created, location: @book }
+      else
+        format.html { redirect_to :back, notice: 'NONONON' }
+        format.json { render :show, status: :created, location: @book }
+      end
+    end
+  end 
+
+
+
+
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_book

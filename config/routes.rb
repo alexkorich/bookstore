@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :categories
   resources :orders
   resources :order_checkout
+  post 'books/add_to_cart' => 'books#add_to_cart'
 end

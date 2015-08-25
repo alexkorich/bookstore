@@ -30,7 +30,7 @@ class Order < ActiveRecord::Base
   has_many :order_items
   has_one :billing_adress, class_name: "Adress"
   has_one :shipping_adress, class_name: "Adress"
-  validates :total_price, :state, :completed_date, presence:true
+  validates :total_price, :state, presence:true
 	def total_price
     a=0
     self.order_items.each do |item|
@@ -46,7 +46,7 @@ class Order < ActiveRecord::Base
     i.quantity+=1
     
       else
-    i=self.order_items.build.OrderItem.new(price:book.price, quantity:1, book:book)
+    i=self.order_items.build(price:book.price, quantity:1, book:book)
   end
   i.save
  	end

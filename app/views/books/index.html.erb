@@ -15,6 +15,7 @@
         <td><%= link_to 'Show', book %></td>
        <%= book.title %>
        <%= book.price %>
+       <%= button_to "Add to Cart", books_add_to_cart_path(id:book.id), :method => :post %>
       </tr>
     <% end %>
   </tbody>
