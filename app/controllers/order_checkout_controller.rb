@@ -8,13 +8,13 @@ class OrderCheckoutController < ApplicationController
     case step
     when :adress
       @friends = @user.find_friends
-    end
+    
   when :delivery
       @friends = @user.find_friends
-    end
+    
     when :payment
       @friends = @user.find_friends
-    end
+    
   end
     render_wizard
   end
