@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   resources :authors
   resources :categories
   resources :orders
-
+  resources :order_checkout
 end
