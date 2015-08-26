@@ -20,7 +20,7 @@ gem 'carrierwave'
 gem 'kaminari'
 gem 'mini_magick'
 gem 'wicked'
-gem 'rails_admin_aasm'
+
 gem "omniauth-facebook"
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -41,7 +41,7 @@ gem "rails_admin"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'rails_admin_aasm'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
