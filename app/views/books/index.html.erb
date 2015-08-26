@@ -7,7 +7,13 @@
         <div><%= link_to 'Show', book %></div>
        <%= book.title %>
        <%= book.price %>
-       <%= button_to "Add to Cart", books_add_to_cart_path(id:book.id), :method => :post %>
+       <%= simple_form_for :book , url: books_add_to_cart_path, method: 'post' do |f| %>
+        <%=f.input :id, as: :hidden , input_html: { value: book.id }%>
+        <%= f.input :quantity, as: :integer, :input_html => { :value => 1}, required: false, label: false %> 
+        <%= f.submit "Add to Cart" %>, 
+
+  <% end %> 
+      
       </div>
     <% end %>
 

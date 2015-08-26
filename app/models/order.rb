@@ -40,13 +40,13 @@ class Order < ActiveRecord::Base
     a
 	end
 
-	def add_book(book)
+	def add_book(book, quantity)
     i=self.order_items.find_by(book: book)
   if i 
-    i.quantity+=1
+    i.quantity+=quantity
     
       else
-    i=self.order_items.build(price:book.price, quantity:1, book:book)
+    i=self.order_items.build(price:book.price, quantity:quantity, book:book)
   end
   i.save
  	end

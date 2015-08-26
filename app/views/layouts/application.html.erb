@@ -15,11 +15,12 @@
     <% if user_signed_in? %>
     <div>
       <img src="">
-      Cart:<%= current_user.admin? %>
+      Cart:<%= current_user.current_order.order_items.count %>
     </div>
 
       Logged in as <strong><%= current_user.email %></strong>.
-      <%= link_to 'Edit profile', edit_user_registration_path %> |
+      <%= link_to 'Settings', edit_user_registration_path %> |
+      <%= link_to 'Orders',  order_checkout_index_path %> |
       <%= link_to "Logout", destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to "Sign up", new_user_registration_path %> |

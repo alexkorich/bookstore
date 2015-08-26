@@ -63,7 +63,7 @@ class BooksController < ApplicationController
 
   def add_to_cart
     cart=current_user.current_order
-    cart.add_book(Book.find(params[:id]))
+    cart.add_book(Book.find(params[:book][:id]), params[:book][:quantity].to_i)
     respond_to do |format|
       if cart.save
         format.html { redirect_to :back, notice: 'Book added!' }

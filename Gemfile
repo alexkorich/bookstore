@@ -33,6 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #postgresql driver
 gem 'pg'
 gem "rails_admin"
+gem 'simple_form'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -58,6 +59,5 @@ group :test do
   gem 'database_cleaner'
   gem 'shoulda-matchers'
   gem 'faker'
-
   end
 
