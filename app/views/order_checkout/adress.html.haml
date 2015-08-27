@@ -1,0 +1,15 @@
+%div
+  %h2
+    Checkout
+  %div  
+    %h3
+      BILLING ADRESS  
+    =simple_form_for :adress do |f|
+      =f.input :firstname
+      =f.input :lastname
+      =f.input :street_adress
+      =f.input :city
+      =f.input :country, as: :select, collection: [ "Australia", "Brazil", "New Zealand"]
+      =f.input :zip
+      =f.input :phone
+      =f.submit "Save and continue"

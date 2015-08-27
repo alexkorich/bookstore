@@ -7,7 +7,7 @@ class OrderCheckoutController < ApplicationController
     @user = current_user
     case step
     when :adress
-      @friends = @user.find_friends
+      @adress = current_user.current_order.billing_adress
     
   when :delivery
       @friends = @user.find_friends

@@ -15,7 +15,7 @@
     <% if user_signed_in? %>
     <div>
       <img src="">
-      Cart:<%= current_user.current_order.order_items.count %>
+      Cart: $<%= current_user.current_order.total_price %> (<%= current_user.current_order.order_items.inject(0){|sum, item| sum+=item.quantity} %>)
     </div>
 
       Logged in as <strong><%= current_user.email %></strong>.

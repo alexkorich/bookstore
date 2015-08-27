@@ -1,5 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <%= @book.title %>
+
+<%= image_tag @book.cover %>
+
+Author: <%= link_to "#{@book.author.firstname} #{@book.author.lastname}", @book.author %>
 <%= @book.description %>
+    <%= simple_form_for :book , url: books_add_to_cart_path, method: 'post' do |f| %>
+        <%=f.input :id, as: :hidden , input_html: { value: @book.id }%>
+        <%= f.input :quantity, as: :integer, :input_html => { :value => 1}, required: false, label: false %> 
+        <%= f.submit "Add to Cart" %>
+
+  <% end %> 
+  Rate this book!
+  <%= form_for :rating, url: rating_path, method: 'post' do |f| %>
+  <%= f.text_field :text_review %>
+  <%= f.integer :rating, as: :select, collection: 1..10%>
+  <%= f.submit 'Leave rating' %>
+  <% end %>
 <%= link_to 'Back', books_path %>

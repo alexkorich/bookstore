@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :authors
   resources :categories
   resources :orders
+  resources :ratings
   resources :order_checkout
   post 'books/add_to_cart' => 'books#add_to_cart'
 end
