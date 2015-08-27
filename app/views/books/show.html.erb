@@ -12,10 +12,20 @@ Author: <%= link_to "#{@book.author.firstname} #{@book.author.lastname}", @book.
         <%= f.submit "Add to Cart" %>
 
   <% end %> 
+Reviews: <% @book.ratings.each do |rating| %>
+<div>
+  <%= rating.user.firstname %> <%= rating.user.lastname %>
+  <%= rating.rating %>
+  <%= rating.text_review %>
+
+</div>
+<% end %>
   Rate this book!
-  <%= form_for :rating, url: rating_path, method: 'post' do |f| %>
+  <%= form_for :rating, url: ratings_path, method: 'post' do |f| %>
   <%= f.text_field :text_review %>
-  <%= f.integer :rating, as: :select, collection: 1..10%>
+  <%= f.hidden_field :user_id, value:current_user.id  %>
+  <%= f.hidden_field :book_id, value:@book.id  %>
+  <%= f.select :rating, 1..10%>
   <%= f.submit 'Leave rating' %>
   <% end %>
 <%= link_to 'Back', books_path %>
