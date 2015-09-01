@@ -1,0 +1,31 @@
+%div 
+  Categories:
+
+= render 'home/categories', html: {position:'fixed',  float: 'right', height:'70px', width:'30px'}
+- bestsellers.each do |book|
+  = book.title 
+  = book.price  
+  = image_tag book.cover.thumb 
+.carousel.slide#carousel-example-generic{"data-ride": "carousel"}
+  %div.carousel-inner{"role": "listbox"}
+    %div.item.active
+      %img{"src": "1.jpg", "alt": "ooops"}
+      %div.carousel-caption
+    %div.item
+      %img{"src": "2.jpg", "alt": "oops"}
+      %div.carousel-caption
+    %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-example-generic", :role => "button"}
+    %span.glyphicon.glyphicon-chevron-left{"aria-hidden" => "true"}
+    %span.sr-only Previous
+  %a.right.carousel-control{"data-slide" => "next", :href => "#carousel-example-generic", :role => "button"}
+    %span.glyphicon.glyphicon-chevron-right{"aria-hidden" => "true"}
+    %span.sr-only Next
+    %span.glyphicon.glyphicon-chevron-right{"aria-hidden": "true"}
+  %span.sr-only Next
+:javascript
+  $(function(){
+  // You used .myCarousel here. 
+  // That's the class selector not the id selector,
+  // which is #myCarousel
+  $('#myCarousel').carousel();
+  });
