@@ -1,19 +1,23 @@
-%div 
-  Categories:
-
-= render 'home/categories', html: {position:'fixed',  float: 'right', height:'70px', width:'30px'}
-- bestsellers.each do |book|
-  = book.title 
-  = book.price  
-  = image_tag book.cover.thumb 
-.carousel.slide#carousel-example-generic{"data-ride": "carousel"}
+%div{style:"max-width:150px; position: absolute; width: 100%;  padding: 24px 16px; top: 0; left: 60%; bottom:0; border-left: solid 1px #d7d7d7; overflow-x: hidden;overflow-y: auto;width: 100%; box-sizing: border-box;"  }
+  = render 'home/categories' 
+  / - bestsellers.each do |book|
+  /   = book.title 
+  /   = book.price  
+  /   = image_tag book.cover.thumb 
+.carousel.slide#carousel-example-generic{"data-ride": "carousel", "style" =>"max-width: 490px"}
   %div.carousel-inner{"role": "listbox"}
-    %div.item.active
-      %img{"src": "1.jpg", "alt": "ooops"}
-      %div.carousel-caption
-    %div.item
-      %img{"src": "2.jpg", "alt": "oops"}
-      %div.carousel-caption
+    - bestsellers.each_with_index do |book, index|
+      -if index==0
+        %div.item.active
+         
+          = book.title 
+          = book.price  
+          = image_tag book.cover.thumb 
+      -else  
+        %div.item
+          = book.title 
+          = book.price  
+          = image_tag book.cover.thumb 
     %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-example-generic", :role => "button"}
     %span.glyphicon.glyphicon-chevron-left{"aria-hidden" => "true"}
     %span.sr-only Previous

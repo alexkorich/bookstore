@@ -13,10 +13,10 @@
    <%= link_to("STORE", books_path) %>
   
     <% if user_signed_in? %>
-    <div>
+    <span>
       <img src="">
       Cart: $<%= current_user.current_order.total_price %> (<%= current_user.current_order.order_items.inject(0){|sum, item| sum+=item.quantity} %>)
-    </div>
+    </span>
 
       Logged in as <strong><%= current_user.email %></strong>.
       <%= link_to 'Settings', edit_user_registration_path %> |
@@ -32,7 +32,7 @@
   <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, id: "flash-#{name}" %>
   <% end %>
+ <%= yield %>
  
-  <%= yield %>
 </body>
 </html>

@@ -1,4 +1,8 @@
-<%categories.each do |c| %> 
-<%= link_to(c.title, "categories/#{c.id}" ) %>
+Categories:
+
+<%categories.each do |c|  %> 
+<div><%= link_to(c.title, "categories/#{c.id}" )%></div>
+
+
 
 <% end %>
