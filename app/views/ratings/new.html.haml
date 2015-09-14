@@ -1,0 +1,7 @@
+%h1 New Rating
+= form_for :rating, url: ratings_path, method: 'post' do |f| 
+  = f.text_field :text_review 
+  = f.hidden_field :book_id, value:@book.id  
+  = f.select :rating, 1..10
+  = f.submit 'Leave rating' 
+<%= link_to 'Back', :back %>

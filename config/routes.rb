@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: "home#index"
   
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  post 'books/add_to_cart' => 'books#add_to_cart'
   resources :books
   resources :authors
   resources :categories
@@ -11,5 +12,5 @@ Rails.application.routes.draw do
   resources :ratings
   resources :order_checkout
   resources :order_items
-  post 'books/add_to_cart' => 'books#add_to_cart'
+  
 end

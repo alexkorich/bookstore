@@ -3,12 +3,13 @@ class Ability
   def initialize(user)
     if user
      if user.admin?  
-      can :access, :rails_admin       # only allow admin users to access Rails Admin
-      can :dashboard           
-      can :manage, :all
+        can :access, :rails_admin       # only allow admin users to access Rails Admin
+        can :dashboard           
+        can :manage, :all
       else
-      can :read, :all
-      can :add_to_cart, Book
+        can :read, :all
+        can :create, Rating
+        can :add_to_cart, Book
     end
     else
       can :index, :home
