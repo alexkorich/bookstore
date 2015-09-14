@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
-
+  # authorize_resource
   # GET /books
   # GET /books.json
   def index
@@ -62,7 +62,7 @@ class BooksController < ApplicationController
   end
 
   def add_to_cart
-    authorize! :add_to_cart, @book, message: "You must log in to perform this action"
+    authorize! :add_to_cart, Book, message: "You must log in to perform this action"
     cart=current_user.current_order
     cart.add_book(Book.find(params[:book][:id]), params[:book][:quantity].to_i)
     respond_to do |format|
