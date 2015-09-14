@@ -1,0 +1,39 @@
+!!! 5
+%html
+%head
+  %title Bookstore
+  = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+  = javascript_include_tag "application", "data-turbolinks-track" => true
+  = csrf_meta_tags
+
+  %body
+    #user-nav.nav.nav-tabs
+      %span The Bookstore
+      = link_to "HOME", root_path
+      | 
+      = link_to("STORE", books_path)
+      |
+      - if user_signed_in?
+        %span.glyphicon.glyphicon-shopping-cart
+          = link_to("Cart: #{current_user.current_order.total_price}(#{current_user.current_order.order_items.inject(0){|sum, item| sum+=item.quantity}})", order_items_path)
+        Logged in as 
+        %strong 
+          = current_user.email
+        = link_to 'Settings', edit_user_registration_path
+        |
+        = link_to 'Orders',  order_checkout_index_path
+        |
+        = link_to "Logout", destroy_user_session_path, method: :delete 
+      - else
+        = link_to "Sign up", new_user_registration_path
+        |
+        = link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook)
+        |
+        = link_to "Login", new_user_session_path
+
+    - flash.each do |name, msg|
+      = content_tag :div, msg, id: "flash-#{name}"
+    %div
+      = yield 
+
+ 

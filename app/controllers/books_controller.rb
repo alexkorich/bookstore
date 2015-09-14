@@ -62,6 +62,7 @@ class BooksController < ApplicationController
   end
 
   def add_to_cart
+    authorize! :add_to_cart, @book, message: "You must log in to perform this action"
     cart=current_user.current_order
     cart.add_book(Book.find(params[:book][:id]), params[:book][:quantity].to_i)
     respond_to do |format|
@@ -88,6 +89,8 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
+
+        # params.require(:book).permit(:rating, :text_review, :user_id, :book_id)
       params[:book]
     end
 end

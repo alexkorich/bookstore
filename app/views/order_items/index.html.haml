@@ -1,0 +1,10 @@
+-@order_items.each do |order_item|
+  =order_item.book.title
+  =form_for( order_item, url: "order_items/#{order_item.id}", method: "put" ) do |f|
+    =f.number_field :quantity
+    =f.submit
+
+/ <%= simple_form_for :book , url: books_add_to_cart_path, method: 'post' do |f| %>
+/        <%=f.input :id, as: :hidden , input_html: { value: book.id }%>
+/        <%= f.input :quantity, as: :integer, :input_html => { :value => 1}, required: false, label: false %> 
+/        <%= f.submit "Add to Cart" %>

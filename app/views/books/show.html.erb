@@ -12,7 +12,9 @@ Author: <%= link_to "#{@book.author.firstname} #{@book.author.lastname}", @book.
         <%= f.submit "Add to Cart" %>
 
   <% end %> 
-Reviews: <% @book.ratings.each do |rating| %>
+Reviews: 
+<%= link_to("Leave rating for this book",  , :options) %> 
+<% @book.ratings.each do |rating| %>
 <div>
   <%= rating.user.firstname %> <%= rating.user.lastname %>
   <%= rating.rating %>

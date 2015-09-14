@@ -12,11 +12,15 @@ class ApplicationController < ActionController::Base
 
   rescue_from CanCan::AccessDenied do |exception|
       if user_signed_in?
-        flash[:error] = "Not authorized to view this page"
+        flash[:error] = "Sorry. but you are not authorized to view this page"
         session[:user_return_to] = nil
         redirect_to '/'
+      else
+      if exception.message
+      flash[:error] = exception.message
       else              
         flash[:error] = "You must first login to view this page"
+      end
         session[:user_return_to] = request.url
         redirect_to "/users/sign_in"
       end 
