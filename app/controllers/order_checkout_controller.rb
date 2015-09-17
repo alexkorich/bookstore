@@ -3,40 +3,48 @@ class OrderCheckoutController < ApplicationController
 
   steps :adress, :delivery, :payment, :confirm, :complete
 
-
-
-
   def show
-    @user = current_user
-    @order=@user.current_order
+    @order=current_user.current_order
 
   case step
     when :adress
-      @adress = current_user.current_order.billing_adress
-    
-  when :delivery
+      @billing_adress = current_user.current_order.billing_adress
+    when :delivery
       @delivery = current_user.current_order.delivery
-    
     when :payment
-      @friends = @user.find_friends
-    
+      @card = @order.credit_card
   end
     render_wizard
   end
 
   def update
-    @user = current_user
-    @order=@user.current_order
+    @order=current_user.current_order
+  case step
    when :adress
-      @adress = current_user.current_order.billing_adress
-    
+    @order.billing_adress=@order.billing_adress || Adress.new(billing_adress_attributes)
+    if @order.billing_adress.save
+      render_wizard @order
+      return
+    else
+      render_wizard
+    end
   when :delivery
-      @delivery = current_user.current_order.delivery
-    
+      @order.delivery = @order.delivery || Delivery.find(params[:order][:delivery])
+      if @order.delivery.save
+      render_wizard @order
+      return
+    else
+      render_wizard
+    end
     when :payment
-      @friends = @user.find_friends
-    
+      @card = @order.credit_card
   end
     render_wizard
 
+  end
+
+
+  def billing_adress_attributes
+    params.require(:billing_adress).permit(:firstname, :lastname,:street,:city, :country, :zipcode, :phone)
+  end
 end
