@@ -1,0 +1,10 @@
+%h3 Credit card
+=form_for @credit_card, url: wizard_path, :method => :put do |f|
+  =f.number_field :number, placeholder: "Card number"
+  Expiration date:
+  =f.select :expiration_month, 01..12
+  =f.select :expiration_year, 15..20
+  =f.text_field :firstname, placeholder: "First name" 
+  =f.text_field :lastname, placeholder: "Last name"
+  =f.number_field :cvv, placeholder: "CVV"
+  =f.submit "Save and contunue"

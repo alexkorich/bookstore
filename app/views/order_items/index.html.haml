@@ -36,4 +36,5 @@
     =f.input :code, required: false, label: false, placeholder: 'enter code here'
     =f.submit "Update"
 
-  =button_to "Checkout", order_checkout_index_path, method: :get
+
+=button_to "Checkout", order_checkout_index_path, :method => :put

@@ -8,12 +8,17 @@ class OrderCheckoutController < ApplicationController
 
   case step
     when :adress
-      @billing_adress = current_user.current_order.billing_adress
+      @billing_adress = current_user.current_order.billing_adress || Adress.new
     when :delivery
-      @delivery = current_user.current_order.delivery
+      @delivery = current_user.current_order.delivery || Delivery.first
     when :payment
-      @card = @order.credit_card
-  end
+      @credit_card = @order.credit_card || CreditCard.new
+    when :confirm
+    @credit_card = @order.credit_card || CreditCard.new
+
+    when :complete
+      @credit_card = @order.credit_card || CreditCard.new
+    end
     render_wizard
   end
 
@@ -25,26 +30,43 @@ class OrderCheckoutController < ApplicationController
     if @order.billing_adress.save
       render_wizard @order
       return
-    else
-      render_wizard
-    end
+      else
+        render_wizard
+      end
   when :delivery
       @order.delivery = @order.delivery || Delivery.find(params[:order][:delivery])
       if @order.delivery.save
+        render_wizard @order
+        return
+      else
+        render_wizard
+      end
+    when :payment
+      @credit_card = @order.credit_card || CreditCard.new(credit_card_attributes)
+      if @credit_card.save
       render_wizard @order
       return
-    else
-      render_wizard
     end
-    when :payment
-      @card = @order.credit_card
+    when :confirm
+      @credit_card = @order.credit_card || CreditCard.new
+      @order.state = :in_queue
+      @order.completed_at = Time.current
+      if @order.save
+      return render_wizard @order
+      end
+      when :complete
+      render_wizard @order
+  
   end
-    render_wizard
-
   end
+  
 
 
   def billing_adress_attributes
     params.require(:billing_adress).permit(:firstname, :lastname,:street,:city, :country, :zipcode, :phone)
+  end
+
+  def credit_card_attributes
+    params.require(:credit_card).permit(:number, :cvv, :expiration_year, :expiration_month, :firstname, :lastname)
   end
 end
