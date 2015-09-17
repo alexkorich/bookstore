@@ -1,10 +1,9 @@
 %div
   %h2
     Checkout
-  %div  
-    %h3
-      BILLING ADRESS  
-    =simple_form_for :adress do |f|
+  %div{style:'float:left; width:33.3%'}
+    %h3 Billing adress
+    =simple_form_for :adress, action: :update do |f|
       =f.input :firstname
       =f.input :lastname
       =f.input :street_adress
@@ -13,3 +12,10 @@
       =f.input :zip
       =f.input :phone
       =f.submit "Save and continue"
+  %div{style:'float:left; width:33.3%'}
+    %h3 Shipping adress
+    =check_box("puppy", "commands", {:multiple => true}, "sit", nil)
+  %div{style:'float:left; width:33.3%'}
+    %h3 order summary 
+%div
+  =link_to next_wizard_path

@@ -16,6 +16,20 @@ class OrderItemsController < ApplicationController
     end
 
   end
+  def empty
+    if current_user.current_order.order_items
+      current_user.current_order.order_items.destroy_all
+    end
+    respond_to do |format|
+      if current_user.current_order.update({"1":"1"})
+        format.html { redirect_to :back, notice: 'Order item was successfully updated.' }
+        format.json { render :show, status: :ok, location: @order }
+      else
+        format.html { render :edit }
+        format.json { render json: @order.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
    private
     # Use callbacks to share common setup or constraints between actions.

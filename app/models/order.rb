@@ -12,21 +12,22 @@ class Order < ActiveRecord::Base
       transitions :from => :in_progress, :to => :in_queue
     end
 
-    event :processed do
+    event :process do
       transitions :from => :in_queue, :to => :in_delivery
     end
 
-    event :delivered do
+    event :deliver do
       transitions :from => :in_delivery, :to => :delivered
     end
     event :cancel do
-      transitions :from => [:in_queue, :in_delivery], :to => :canceled
+      transitions :from => [:in_queue, :in_delivery], :to => :cancelled
     end
   end
 
 
   belongs_to :customer
   belongs_to :credit_card
+  belongs_to :delivery
   has_many :order_items
   has_one :billing_adress, class_name: "Adress"
   has_one :shipping_adress, class_name: "Adress"
@@ -50,4 +51,21 @@ class Order < ActiveRecord::Base
   end
   i.save
  	end
+
+
+  rails_admin do
+    list do
+      field :id
+      field :state, :state
+    end
+    edit do
+      field :state, :state
+    end
+
+     state({
+    events: {pay: 'btn-success', process: 'btn-success', deliver: 'btn-success', cancel:'btn-danger'},
+    states: {in_queue: 'label-important', in_delivery: 'label-warning', delivered: 'label-success', cancelled:'label-danger'}
+  })
+
+  end
 end

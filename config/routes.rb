@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   post 'books/add_to_cart' => 'books#add_to_cart'
+  post 'order_items/empty' => 'order_items#empty'
   resources :books
   resources :authors
   resources :categories

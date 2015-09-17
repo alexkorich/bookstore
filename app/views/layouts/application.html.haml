@@ -21,7 +21,7 @@
           = current_user.email
         = link_to 'Settings', edit_user_registration_path
         |
-        = link_to 'Orders',  order_checkout_index_path
+        = link_to 'Orders',  orders_path
         |
         = link_to "Logout", destroy_user_session_path, method: :delete 
       - else

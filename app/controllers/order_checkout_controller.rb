@@ -3,14 +3,19 @@ class OrderCheckoutController < ApplicationController
 
   steps :adress, :delivery, :payment, :confirm, :complete
 
+
+
+
   def show
     @user = current_user
-    case step
+    @order=@user.current_order
+
+  case step
     when :adress
       @adress = current_user.current_order.billing_adress
     
   when :delivery
-      @friends = @user.find_friends
+      @delivery = current_user.current_order.delivery
     
     when :payment
       @friends = @user.find_friends
@@ -18,4 +23,20 @@ class OrderCheckoutController < ApplicationController
   end
     render_wizard
   end
+
+  def update
+    @user = current_user
+    @order=@user.current_order
+   when :adress
+      @adress = current_user.current_order.billing_adress
+    
+  when :delivery
+      @delivery = current_user.current_order.delivery
+    
+    when :payment
+      @friends = @user.find_friends
+    
+  end
+    render_wizard
+
 end
