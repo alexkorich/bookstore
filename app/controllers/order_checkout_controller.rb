@@ -9,15 +9,15 @@ class OrderCheckoutController < ApplicationController
   case step
     when :adress
       @billing_adress = current_user.current_order.billing_adress || Adress.new
-    when :delivery
-      @delivery = current_user.current_order.delivery || Delivery.first
+    # when :delivery
+    #   @delivery = current_user.current_order.delivery || Delivery.first
     when :payment
       @credit_card = @order.credit_card || CreditCard.new
     when :confirm
-    @credit_card = @order.credit_card || CreditCard.new
-
-    when :complete
-      @credit_card = @order.credit_card || CreditCard.new
+    
+    # return
+    # when :complete
+    #   return
     end
     render_wizard
   end
@@ -46,9 +46,10 @@ class OrderCheckoutController < ApplicationController
       if @credit_card.save
       render_wizard @order
       return
+      else
+        render_wizard
     end
     when :confirm
-      @credit_card = @order.credit_card || CreditCard.new
       @order.state = :in_queue
       @order.completed_at = Time.current
       if @order.save
