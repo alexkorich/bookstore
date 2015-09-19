@@ -14,10 +14,9 @@ class OrderCheckoutController < ApplicationController
     when :payment
       @credit_card = @order.credit_card || CreditCard.new
     when :confirm
+    @credit_card = @order.credit_card || CreditCard.new
     
-    return
     when :complete
-      return
     end
     render_wizard
   end
@@ -48,7 +47,7 @@ class OrderCheckoutController < ApplicationController
       return
       else
         render_wizard
-    end
+      end
     when :confirm
       @order.state = :in_queue
       @order.completed_at = Time.current
