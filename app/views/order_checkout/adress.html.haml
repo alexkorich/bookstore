@@ -3,7 +3,7 @@
     Checkout
   %div{style:'float:left; width:33.3%'}
     %h3 Billing adress
-    =form_for @billing_adress, url: wizard_path, :method => :put do |d|
+    =form_for :billing_adress, url: wizard_path, :method => :put do |d|
       =d.text_field :firstname
       =d.text_field  :lastname
       =d.text_field  :street
