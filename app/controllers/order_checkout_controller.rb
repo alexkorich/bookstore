@@ -5,7 +5,7 @@ class OrderCheckoutController < ApplicationController
 
   def show
     @order=current_user.current_order
-
+    @id=@order.id
   case step
     when :adress
       @billing_adress = current_user.current_order.billing_adress || Adress.new
@@ -17,6 +17,7 @@ class OrderCheckoutController < ApplicationController
     @credit_card = @order.credit_card || CreditCard.new
     
     when :complete
+      @order=Order.find(@id)
     end
     render_wizard
   end
@@ -27,6 +28,7 @@ class OrderCheckoutController < ApplicationController
    when :adress
     @order.billing_adress=@order.billing_adress || Adress.new(billing_adress_attributes)
     if @order.billing_adress.save
+      puts "TTTTTTTTTTTTTTTTTTTTTTTTT"
       render_wizard @order
       return
       else
@@ -50,11 +52,16 @@ class OrderCheckoutController < ApplicationController
       end
     when :confirm
       @order.state = :in_queue
-      @order.completed_at = Time.current
+      @order.completed_date = Time.current
+
       if @order.save
-      return render_wizard @order
+      render_wizard @order
+
+      return 
+        else redirect_to '/'
       end
       when :complete
+        2
       render_wizard @order
   
   end

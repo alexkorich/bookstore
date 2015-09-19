@@ -1,0 +1,23 @@
+%p 
+  Order
+  =@order.id
+
+%div{style: "float:left; width:25%"}
+  %p Shipping adress
+  %p 
+    =@order
+%div{style: "float:left; width:25%"}
+  %p Billing adress
+  %p 
+    / =@order.billing_adress.firstname+" "+@order.billing_adress.firstname
+  %p 
+    / =@order.billing_adress.street
+  %p 
+    / =@order.billing_adress.phone
+%div{style: "float:left; width:25%"}
+  Shipments
+ 
+%div{style: "float:left; width:25%"}
+  Payment information
+ 
+%br
