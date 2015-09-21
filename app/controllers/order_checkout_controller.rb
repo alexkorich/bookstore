@@ -51,7 +51,7 @@ class OrderCheckoutController < ApplicationController
         render_wizard
       end
     when :confirm
-      @order.state = :in_queue
+      @order.pay
       @order.completed_date = Time.current
 
       if @order.save
