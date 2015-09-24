@@ -32,5 +32,9 @@ class User < ActiveRecord::Base
     find_or_create_by(uid: auth.uid, provider: auth.provider)
   end
   
+   after_create :send_admin_mail
+  def send_admin_mail
+    UserMailer.registered(self).deliver_now
+  end
 
 end
