@@ -8,11 +8,11 @@ class Order < ActiveRecord::Base
     state :delivered
     state :cancelled
 
-    event :pay do
+    event :pay,  :after => :notify_pay  do
       transitions :from => :in_progress, :to => :in_queue
     end
 
-    event :process do
+    event :process, :after => :notify_delivery do
       transitions :from => :in_queue, :to => :in_delivery
     end
 
@@ -51,7 +51,13 @@ class Order < ActiveRecord::Base
   end
   i.save
  	end
+  def notify_delivery
+     UserMailer.delivery(User.find(self.user_id), self).deliver_now
+  end
 
+  def notify_pay
+     UserMailer.pay(User.find(self.user_id), self).deliver_now
+  end
 
   rails_admin do
     list do

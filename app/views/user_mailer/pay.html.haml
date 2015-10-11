@@ -1,0 +1,19 @@
+%p 
+  Hello, 
+  =@user.firstname
+  =@user.lastname 
+  !
+%p
+  You ordered :
+  @order.order_items.each do |item|
+    =item.book.title
+    ,
+    =item.price
+%p
+  Total price:
+  =@order.total_price
+%p
+  Delivery method:
+  =@order.delivery.name
+
+We contact you soon to verify your order.

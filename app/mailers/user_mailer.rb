@@ -1,7 +1,8 @@
 class UserMailer < ApplicationMailer
-  def delivery(user)
-
-
+  def delivery(user, order)
+    @user=user
+    @order=order
+    mail(to: @user.email, subject: "Order #{@order.id} in delivery")
 
 
   end
@@ -12,5 +13,11 @@ class UserMailer < ApplicationMailer
     @user = user
   mail(to: @user.email, subject: 'Welcome to My Awesome Site')
   end
+  def pay(user, order)
+     @user=user
+    @order=order
+    mail(to: @user.email, subject: "Order confirmation")
 
+
+  end
 end
