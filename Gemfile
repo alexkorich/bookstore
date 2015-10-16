@@ -19,7 +19,7 @@ gem 'carrierwave'
 gem 'kaminari'
 gem 'mini_magick'
 gem 'wicked'
-
+gem 'simplecov', :require => false, :group => :test
 gem "omniauth-facebook"
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

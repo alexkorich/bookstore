@@ -32,6 +32,7 @@ class OrderCheckoutController < ApplicationController
       render_wizard @order
       return
       else
+        flash[:notice] = @order.errors.full_messages
         render_wizard
       end
   when :delivery
@@ -40,6 +41,7 @@ class OrderCheckoutController < ApplicationController
         render_wizard @order
         return
       else
+        flash[:notice] = @order.errors.full_messages
         render_wizard
       end
     when :payment
@@ -48,6 +50,7 @@ class OrderCheckoutController < ApplicationController
       render_wizard @order
       return
       else
+        flash[:notice] = @order.errors.full_messages
         render_wizard
       end
     when :confirm

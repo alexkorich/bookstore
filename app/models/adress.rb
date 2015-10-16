@@ -1,4 +1,6 @@
 class Adress < ActiveRecord::Base
   belongs_to :order
-  validates  :zipcode, :city, :phone, :country, presence:true
+  belongs_to :country
+  
+  validates  :zipcode, :city, :phone, presence:true
 end

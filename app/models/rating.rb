@@ -2,7 +2,8 @@ class Rating < ActiveRecord::Base
   belongs_to :user
   belongs_to :book
   validates :rating, presence: true
-  validates :rating, :inclusion => {:in => [1,2,3,4,5,6,7,8,9,10]}
+  
+  validates :rating, numericality:{only_integer: true, in: 1..10}
   validates :user, presence: true
   validates :book, presence: true
 end

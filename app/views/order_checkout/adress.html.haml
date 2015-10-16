@@ -4,13 +4,13 @@
   %div{style:'float:left; width:33.3%'}
     %h3 Billing adress
     =form_for :billing_adress, url: wizard_path, :method => :put do |d|
-      =d.text_field :firstname
-      =d.text_field  :lastname
-      =d.text_field  :street
-      =d.text_field  :city
-      =d.select :country, collection: [ "Australia", "Brazil", "New Zealand"]
-      =d.number_field :zipcode
-      =d.phone_field :phone
+      =d.text_field :firstname, placeholder:"First name"
+      =d.text_field  :lastname,  placeholder:"Last name"
+      =d.text_field  :street, placeholder:"Street"
+      =d.text_field  :city,  placeholder:"City"
+      =collection_select :country, :country_id, Country.all, :id, :name
+      =d.number_field :zipcode, placeholder:"Zip code"
+      =d.phone_field :phone, placeholder:"Phone"
       =d.submit 'Save and continue'
   %div{style:'float:left; width:33.3%'}
     %h3 Shipping adress

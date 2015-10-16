@@ -1,6 +1,6 @@
 class Order < ActiveRecord::Base
   include AASM
-
+  validates :total_price, :state, presence:true
  aasm column: "state" do
     state :in_progress, :initial => true
     state :in_queue
@@ -31,7 +31,7 @@ class Order < ActiveRecord::Base
   has_many :order_items
   has_one :billing_adress, class_name: "Adress"
   has_one :shipping_adress, class_name: "Adress"
-  validates :total_price, :state, presence:true
+  
 	def total_price
     a=0
     self.order_items.each do |item|
@@ -40,7 +40,13 @@ class Order < ActiveRecord::Base
     end
     a
 	end
-
+  def gift_code(code)
+    if self.state =="in_progress"
+      
+    else
+      return
+    end
+  end
 	def add_book(book, quantity)
     i=self.order_items.find_by(book: book)
   if i 

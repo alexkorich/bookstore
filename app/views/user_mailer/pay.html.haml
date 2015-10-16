@@ -5,9 +5,8 @@
   !
 %p
   You ordered :
-  @order.order_items.each do |item|
+  =@order.order_items.each do |item|
     =item.book.title
-    ,
     =item.price
 %p
   Total price:

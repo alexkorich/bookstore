@@ -5,8 +5,9 @@ class User < ActiveRecord::Base
   has_many :orders
   has_many :ratings
   
-    validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
-   mount_uploader :avatar, AvatarUploader
+  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
+  mount_uploader :avatar, AvatarUploader
+  after_create :send_admin_mail
 
   def create_order
     self.orders<<Order.new
@@ -14,7 +15,6 @@ class User < ActiveRecord::Base
 
   def current_order
     @current_order=self.orders.find_or_create_by(state:"in_progress")
-    
   end
 
 
@@ -28,11 +28,12 @@ class User < ActiveRecord::Base
     user
     end
   end
+
   def self.find_for_oauth(auth)
     find_or_create_by(uid: auth.uid, provider: auth.provider)
   end
   
-   after_create :send_admin_mail
+   
   def send_admin_mail
     UserMailer.registered(self).deliver_now
   end
