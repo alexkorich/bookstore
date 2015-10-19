@@ -7,7 +7,7 @@
           .bookie
             = link_to book.title, book 
             = "$" +book.price.to_s
-          = simple_form_for :book , remote:true, url: home_add_to_cart_path(:format => :json), :format => :json,  method: 'post' do |f|
+          = simple_form_for :book , remote:true, url: home_add_to_cart_path(:format => :json), method: 'post' do |f|
             .bookie
               =f.input :id, as: :hidden , input_html: { value: book.id }
             .bookie
@@ -20,7 +20,7 @@
           .bookie
           = link_to book.title, book 
           = "$" +book.price.to_s
-          = simple_form_for :book , remote:true, format: :json, url: home_add_to_cart_path, :format => :json , method: 'post' do |f|
+          = simple_form_for :book , remote:true,url: home_add_to_cart_path(:format => :json), method: 'post' do |f|
             .bookie
               =f.input :id, as: :hidden , input_html: { value: book.id }
             .bookie
