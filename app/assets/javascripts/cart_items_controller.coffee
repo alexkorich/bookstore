@@ -2,8 +2,10 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).on  "page:change", ->
- $("form").on "ajax:success", (e, data, status, xhr) ->
+
+
+
+$(document).on "ajax:success", "form.book", (e, data, status, xhr) ->
   if data.price?
     $(".total-price").html(data.price.toFixed(2)+"("+data.quantity+")");
     return false
