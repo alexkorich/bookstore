@@ -1,7 +1,11 @@
-=form_for @order, url:wizard_path, method: :put do |f|
-  - Delivery.all.each do |d|
-    = f.radio_button :delivery, d.id
-    = f.label :delivery, d.name
-  =f.submit
+%div{style:'float:left; width:33.3%'}
+  =form_for @delivery, url:wizard_path, method: :put do |f|
+    =f.collection_radio_buttons @order, :delivery_id, Delivery.all,  :price do |b|
+      =b.label { b.radio_button }
+    =f.submit "Save and contunue"
+%div{style:'float:right; width:33.3%'}
+  %h3
+    ORDER SUMMARY
+
 
 =@order.id

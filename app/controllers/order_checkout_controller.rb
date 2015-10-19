@@ -8,13 +8,13 @@ class OrderCheckoutController < ApplicationController
     @id=@order.id
   case step
     when :adress
-      @billing_adress = current_user.current_order.billing_adress || Adress.new
+      @billing_adress = @order.billing_adress || Adress.new
     when :delivery
-      @delivery = current_user.current_order.delivery || Delivery.first
+      @delivery = @order.delivery || Delivery.first
     when :payment
-      @credit_card = @order.credit_card || CreditCard.new
+      @credit_card = current_user.current_order.credit_card || CreditCard.new
     when :confirm
-    @credit_card = @order.credit_card || CreditCard.new
+      @credit_card = current_user.current_order.credit_card || CreditCard.new
     
     when :complete
       @order=Order.find(@id)
@@ -45,8 +45,8 @@ class OrderCheckoutController < ApplicationController
         render_wizard
       end
     when :payment
-      @credit_card = @order.credit_card || CreditCard.new(credit_card_attributes)
-      if @credit_card.save
+      @order.credit_card = @order.credit_card || CreditCard.new(credit_card_attributes)
+      if @order.credit_card.save
       render_wizard @order
       return
       else

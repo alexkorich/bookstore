@@ -21,7 +21,7 @@ class OrderItemsController < ApplicationController
       current_user.current_order.order_items.destroy_all
     end
     respond_to do |format|
-      if current_user.current_order.update({"1":"1"})
+      if current_user.current_order.save
         format.html { redirect_to :back, notice: 'Order item was successfully updated.' }
         format.json { render :show, status: :ok, location: @order }
       else
