@@ -6,5 +6,6 @@ $(document).on  "page:change", ->
  $("form").on "ajax:success", (e, data, status, xhr) ->
   if data.price?
     $(".total-price").html(data.price.toFixed(2)+"("+data.quantity+")");
+    return false
   else
-    return
+    return false

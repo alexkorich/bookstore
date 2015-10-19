@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
       if user_signed_in?
         flash[:error] = "Sorry. but you are not authorized to view this page"
         session[:user_return_to] = nil
+
         redirect_to '/', content_type: "text/html"
       else
       if exception.message
@@ -22,8 +23,11 @@ class ApplicationController < ActionController::Base
         flash[:error] = "You must first login to view this page"
       end
         session[:user_return_to] = request.url
-        puts request
-        redirect_to ("/users/sign_in")
+        if request.format="js"
+        render js: "window.location='#{new_user_session_path}'"
+      else
+        redirect_to new_user_session_path, format: "html"
+      end
       end 
   end
 
