@@ -15,7 +15,8 @@
       |
       - if user_signed_in?
         %span.glyphicon.glyphicon-shopping-cart
-          = link_to("Cart: #{current_user.current_order.total_price}(#{current_user.current_order.order_items.inject(0){|sum, item| sum+=item.quantity}})", order_items_path)
+          Cart:
+          = link_to(" #{current_user.current_order.total_price}(#{current_user.current_order.order_items.inject(0){|sum, item| sum+=item.quantity}})",  order_items_path,  { :class=>"total-price" })
         Logged in as 
         %strong 
           = current_user.email

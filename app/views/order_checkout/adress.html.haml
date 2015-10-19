@@ -24,7 +24,7 @@
     =d.text_field  :lastname
     =d.text_field  :street
     =d.text_field  :city
-    =d.select :country, collection: [ "Australia", "Brazil", "New Zealand"]
+     =collection_select :country, :country_id, Country.all, :id, :name
     =d.number_field :zipcode
     =d.phone_field :phone
     =d.submit 'Save and continue'

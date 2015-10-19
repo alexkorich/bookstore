@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: "home#index"
   
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  post 'books/add_to_cart' => 'books#add_to_cart'
+  post 'home/add_to_cart' => 'home#add_to_cart'
   post 'order_items/empty' => 'order_items#empty'
   resources :books
   resources :authors

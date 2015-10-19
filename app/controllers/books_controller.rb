@@ -61,20 +61,7 @@ class BooksController < ApplicationController
     end
   end
 
-  def add_to_cart
-    authorize! :add_to_cart, Book, message: "You must log in to perform this action"
-    cart=current_user.current_order
-    cart.add_book(Book.find(params[:book][:id]), params[:book][:quantity].to_i)
-    respond_to do |format|
-      if cart.save
-        format.html { redirect_to :back, notice: 'Book added!' }
-        format.json { render :show, status: :created, location: @book }
-      else
-        format.html { redirect_to :back, notice: 'NONONON' }
-        format.json { render :show, status: :created, location: @book }
-      end
-    end
-  end 
+  
 
 
 
