@@ -2,6 +2,7 @@ class OrderItemsController < ApplicationController
   before_action :set_order_item, only: [:show, :edit, :update, :destroy]
 
   def index
+    @order=current_user.current_order
     @order_items=OrderItem.where(order_id: current_user.current_order.id)
   end
   def update

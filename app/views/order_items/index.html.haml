@@ -1,40 +1,40 @@
-%table
-  %thead
-    %tr
-      %td{style:"text-align:center"} Book
-      %td Price
-      %td{style:"text-align:center"} Qty
-      %td Total
-  %tbody
-    -@order_items.each do |order_item|
+-if @order && !@order.order_items.empty?
+  %table
+    %thead
       %tr
-        %td
-          %div{style:"float:left; width:50px"}
-            =image_tag order_item.book.cover.thumb, class:"style-image"
-          %div{style:"float:left; min-width:400px"}
-            %p
-              %b
-                =order_item.book.title
+        %td{style:"text-align:center"} Book
+        %td Price
+        %td{style:"text-align:center"} Qty
+        %td Total
+    %tbody
+      -@order_items.each do |order_item|
+        %tr
+          %td
+            %div{style:"float:left; width:50px"}
+              =image_tag order_item.book.cover.thumb, class:"style-image"
+            %div{style:"float:left; min-width:400px"}
+              %p
+                %b
+                  =order_item.book.title
 
-            %p
-              =order_item.book.description
-        %td
-          =order_item.book.price
-        %td  
-          =form_for( order_item, url: "order_items/#{order_item.id}", method: "put" ) do |f|
-            =f.number_field :quantity, class: "numeric integer optional" 
-            =f.submit "Update"
-  %tfoot
-    %tr
-      %td{colspan: 4, style:"text-align:right"}
-        =current_user.current_order.total_price
-  
+              %p
+                =order_item.book.description
+          %td
+            =order_item.book.price
+          %td  
+            =form_for( order_item, url: "order_items/#{order_item.id}", method: "put" ) do |f|
+              =f.number_field :quantity, class: "numeric integer optional" 
+              =f.submit "Update"
+    %tfoot
+      %tr
+        %td{colspan: 4, style:"text-align:right"}
+          =current_user.current_order.total_price
+-else
+  %h3 Your cart is empty!
 %div
-  =button_to "Empty cart", 'order_items/empty', method: :post
-  =button_to "Continue shopping", '/', method: :get
+  =button_to "Empty cart", 'order_items/empty',  disabled: @order==nil || @order.order_items.empty?, method: :post
+  =button_to "Continue shopping", root_path, method: :get
   =simple_form_for "code", url: "order_items/promocode", :method => :post do |f|
     =f.input :code, required: false, label: false, placeholder: 'enter code here'
     =f.submit "Update"
-
-
-=button_to "Checkout", order_checkout_index_path, :method => :get
+=button_to "Checkout", order_checkout_index_path, disabled: @order==nil || @order.order_items.empty?, :method => :get
