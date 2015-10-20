@@ -38,7 +38,7 @@ class Order < ActiveRecord::Base
       
      a+=item.price*item.quantity
     end
-    a
+    a=a+self.delivery.price.to_f
 	end
   def gift_code(code)
     if self.state =="in_progress"

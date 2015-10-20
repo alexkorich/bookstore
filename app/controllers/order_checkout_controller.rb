@@ -13,10 +13,13 @@ class OrderCheckoutController < ApplicationController
     when :delivery
       @delivery = @order.delivery || Delivery.first
     when :payment
-      @credit_card = current_user.current_order.credit_card || CreditCard.new
+      @credit_card = @order.credit_card || CreditCard.new
     when :confirm
-      @credit_card = current_user.current_order.credit_card || CreditCard.new
-    
+      @credit_card = @order.credit_card
+      @billing_adress = @order.billing_adress
+      @shipping_adress = @order.shipping_adress
+      @delivery = @order.delivery
+
     when :complete
       @order=Order.find(@id)
     end
@@ -27,7 +30,6 @@ class OrderCheckoutController < ApplicationController
     @order=current_user.current_order
   case step
    when :adress
-
     @order.billing_adress=@order.billing_adress || Adress.new(billing_adress_attributes)
     @order.shipping_adress=@order.shipping_adress || Adress.new(shipping_adress_attributes)
     if @order.billing_adress.save && @order.shipping_adress.save
@@ -76,10 +78,10 @@ class OrderCheckoutController < ApplicationController
 
 
   def billing_adress_attributes
-    params.require(:billing_adress).permit(:firstname, :lastname,:street, :adress, :city, :country, :zipcode, :phone)
+    params.require(:billing_adress).permit(:firstname, :lastname,:street, :adress, :city, :country_id, :zipcode, :phone)
   end
   def shipping_adress_attributes
-    params.require(:shipping_adress).permit(:firstname, :lastname,:street,:city, :country, :adress, :zipcode, :phone)
+    params.require(:shipping_adress).permit(:firstname, :lastname,:street,:city, :country_id, :adress, :zipcode, :phone)
   end
 
   def credit_card_attributes

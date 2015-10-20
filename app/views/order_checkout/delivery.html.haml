@@ -1,9 +1,12 @@
 %div{style:'float:left; width:33.3%'}
   =form_tag wizard_path, method: :put do |f|
     -Delivery.all.each do |d|
-      = radio_button_tag(:delivery, d.id, @order.delivery == d)
-      = d.name
-    = submit_tag
+      %p
+        =radio_button_tag(:delivery, d.id, @order.delivery == d)
+        =d.name
+        $
+        =number_with_precision(d.price, precision: 2)
+    =submit_tag
 %div{style:'float:right; width:33.3%'}
   %h3
     ORDER SUMMARY

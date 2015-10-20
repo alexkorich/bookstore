@@ -2,16 +2,49 @@
 %h4 Confirm
 %div{style: "float:left; width:25%"}
   Shipping adress
-  =link_to "Edit"
+  =link_to "Edit", wizard_path(:adress)
+  %p
+    %p
+      First name:
+      =@shipping_adress.firstname
+    %p
+      Last name:
+      =@shipping_adress.lastname
+    %p
+      Adress:
+      =@shipping_adress.adress
+    %p
+      Street:
+      =@shipping_adress.street
+    %p
+      Zipcode:
+      =@shipping_adress.zipcode
+    %p
+      City:
+      =@shipping_adress.city
+   
+    %p
+      Country:
+      =@shipping_adress.country.name
+
+
+
+
 %div{style: "float:left; width:25%"}
   Billing adress
-  =link_to "Edit"
+  =link_to "Edit", wizard_path(:adress)
+  %p
+
 %div{style: "float:left; width:25%"}
   Shipments
-  =link_to "Edit"
+  =link_to "Edit", wizard_path(:delivery)
+  %p
+
 %div{style: "float:left; width:25%"}
   Payment information
-  =link_to "Edit"
+  =link_to "Edit", wizard_path(:payment)
+  %p
+
 %br
 
 %table
