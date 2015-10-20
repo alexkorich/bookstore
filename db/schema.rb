@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151011191435) do
+ActiveRecord::Schema.define(version: 20151020141556) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,14 +24,11 @@ ActiveRecord::Schema.define(version: 20151011191435) do
     t.string   "country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "order_id"
     t.string   "firstname"
     t.string   "lastname"
     t.string   "street"
     t.integer  "country_id"
   end
-
-  add_index "adresses", ["order_id"], name: "index_adresses_on_order_id", using: :btree
 
   create_table "authors", force: :cascade do |t|
     t.string   "firstname"
@@ -112,11 +109,13 @@ ActiveRecord::Schema.define(version: 20151011191435) do
     t.float    "total_price"
     t.datetime "completed_date"
     t.string   "state"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.integer  "user_id"
     t.integer  "credit_card_id"
     t.integer  "delivery_id"
+    t.integer  "shipping_adress_id"
+    t.integer  "billing_adress_id"
   end
 
   add_index "orders", ["credit_card_id"], name: "index_orders_on_credit_card_id", using: :btree
@@ -160,7 +159,6 @@ ActiveRecord::Schema.define(version: 20151011191435) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["uid"], name: "index_users_on_uid", using: :btree
 
-  add_foreign_key "adresses", "orders"
   add_foreign_key "books", "authors"
   add_foreign_key "books", "categories"
   add_foreign_key "credit_cards", "users"

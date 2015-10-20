@@ -29,8 +29,8 @@ class Order < ActiveRecord::Base
   belongs_to :credit_card
   belongs_to :delivery
   has_many :order_items
-  has_one :billing_adress, class_name: "Adress"
-  has_one :shipping_adress, class_name: "Adress"
+  belongs_to :billing_adress, class_name: "Adress"
+  belongs_to :shipping_adress, class_name: "Adress"
   
 	def total_price
     a=0
