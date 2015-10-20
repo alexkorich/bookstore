@@ -50,7 +50,7 @@ class OrderCheckoutController < ApplicationController
       render_wizard @order
       return
       else
-        flash[:notice] = @order.errors.full_messages
+        flash[:notice] = @order.credit_card.errors.full_messages
         render_wizard
       end
     when :confirm

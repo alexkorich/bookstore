@@ -22,8 +22,10 @@
          
     %div{style:'float:left; width:33.3%'}
       %h3 Shipping adress
+      %p
       =check_box("puppy", "commands", {:multiple => true}, "sit", nil)
       =label "puppy", "Use Billing adress"
+      %br
       =fields_for :shipping_adress do |d|
         =d.text_field :firstname, placeholder:"First name"
         =d.text_field  :lastname,  placeholder:"Last name"
