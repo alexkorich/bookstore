@@ -1,4 +1,5 @@
+==Bookstore-korich
 Simple book store on Ruby on Rails
 
-DB:      PostgreSQL
-Testing: Rspec+Capybara
+* DB:      PostgreSQL
+* Testing: Rspec+Capybara

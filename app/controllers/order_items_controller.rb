@@ -5,6 +5,12 @@ class OrderItemsController < ApplicationController
     @order_items=OrderItem.where(order_id: current_user.current_order.id)
   end
   def update
+    puts "TTTTTTTTTTTTTTTTTTTTTT"
+    puts request["order_item"]["quantity"]
+     puts request["id"]
+    if request["order_item"]["quantity"].to_i==0
+      OrderItem.destroy(request["id"])
+    end
      respond_to do |format|
       if @order_item.update(order_items_params)
         format.html { redirect_to :back, notice: 'Order item was successfully updated.' }
