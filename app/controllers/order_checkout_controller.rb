@@ -36,7 +36,7 @@ class OrderCheckoutController < ApplicationController
         render_wizard
       end
   when :delivery
-      @order.delivery = @order.delivery || Delivery.find(params[:order][:delivery])
+      @order.delivery = @order.delivery || Delivery.find(params[:delivery])
       if @order.delivery.save
         render_wizard @order
         return

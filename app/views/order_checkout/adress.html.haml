@@ -1,41 +1,39 @@
-%div
-  %h2
-    Checkout
-  %div{style:'float:left; width:33.3%'}
-    %h3 Billing adress
-    =form_for :billing_adress, url: wizard_path, :method => :put do |d|
-      %p
+=form_tag wizard_path, :method => 'put' do
+  %div
+    %h2
+      Checkout
+    %div{style:'float:left; width:33.3%'}
+      %h3 Billing adress
+      =fields_for :billing_adress do |d|
+        %p
+          =d.text_field :firstname, placeholder:"First name"
+        %p
+          =d.text_field  :lastname,  placeholder:"Last name"
+        %p  
+          =d.text_field  :street, placeholder:"Street"
+        %p
+          =d.text_field  :city,  placeholder:"City"
+        %p
+          =collection_select :country, :country_id, Country.all, :id, :name
+        %p  
+          =d.number_field :zipcode, placeholder:"Zip code"
+        %p
+          =d.phone_field :phone, placeholder:"Phone"
+         
+    %div{style:'float:left; width:33.3%'}
+      %h3 Shipping adress
+      =check_box("puppy", "commands", {:multiple => true}, "sit", nil)
+      =label "puppy", "Use Billing adress"
+      =fields_for :shipping_adress do |d|
         =d.text_field :firstname, placeholder:"First name"
-      %p
         =d.text_field  :lastname,  placeholder:"Last name"
-      %p  
         =d.text_field  :street, placeholder:"Street"
-      %p
         =d.text_field  :city,  placeholder:"City"
-      %p
         =collection_select :country, :country_id, Country.all, :id, :name
-      %p  
         =d.number_field :zipcode, placeholder:"Zip code"
-      %p
         =d.phone_field :phone, placeholder:"Phone"
-      =d.submit 'Save and continue'
-  %div{style:'float:left; width:33.3%'}
-    %h3 Shipping adress
-    =check_box("puppy", "commands", {:multiple => true}, "sit", nil)
-    =label "puppy", "Use Billing adress"
-    =form_for :shipping_adress, url: wizard_path, :method => :put do |d|
-      =d.text_field :firstname, placeholder:"First name"
-      =d.text_field  :lastname,  placeholder:"Last name"
-      =d.text_field  :street, placeholder:"Street"
-      =d.text_field  :city,  placeholder:"City"
-      =collection_select :country, :country_id, Country.all, :id, :name
-      =d.number_field :zipcode, placeholder:"Zip code"
-      =d.phone_field :phone, placeholder:"Phone"
-      =d.submit 'Save and continue'
-  %div{style:'float:right; width:33.3%; height:100%'}
-    %h3 Order summary 
-  =@order.total_price
-
-
-%div{style:'float:left'}
-  =link_to next_wizard_path, style:'float:left'
+       
+    %div{style:'float:right; width:33.3%; height:100%'}
+      %h3 Order summary 
+    =@order.total_price
+  = submit_tag 
