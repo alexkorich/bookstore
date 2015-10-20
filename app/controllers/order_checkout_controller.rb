@@ -21,7 +21,11 @@ class OrderCheckoutController < ApplicationController
       @delivery = @order.delivery
 
     when :complete
-      @order=Order.find(@id)
+      @order1=Order.find(@id)
+       @credit_card = @order1.credit_card
+      @billing_adress = @order1.billing_adress
+      @shipping_adress = @order1.shipping_adress
+      @delivery = @order1.delivery
     end
     render_wizard
   end

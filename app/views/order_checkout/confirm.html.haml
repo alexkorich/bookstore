@@ -1,50 +1,86 @@
 %h3 Checkout
 %h4 Confirm
-%div{style: "float:left; width:25%"}
-  Shipping adress
-  =link_to "Edit", wizard_path(:adress)
-  %p
+%div{style: "float:left; width:100%"}
+  %div{style: "float:left; width:25%"}
+    Shipping adress
+    =link_to "Edit", wizard_path(:adress)
     %p
-      First name:
-      =@shipping_adress.firstname
+      %p
+        First name:
+        =@shipping_adress.firstname
+      %p
+        Last name:
+        =@shipping_adress.lastname
+      %p
+        Phone:
+        =@shipping_adress.phone
+      %p
+        Adress:
+        =@shipping_adress.adress
+      %p
+        Street:
+        =@shipping_adress.street
+      %p
+        Zipcode:
+        =@shipping_adress.zipcode
+      %p
+        City:
+        =@shipping_adress.city
+     
+      %p
+        Country:
+        =@shipping_adress.country.name
+  %div{style: "float:left; width:25%"}
+    Billing adress
+    =link_to "Edit", wizard_path(:adress)
     %p
-      Last name:
-      =@shipping_adress.lastname
+      %p
+        First name:
+        =@billing_adress.firstname
+      %p
+        Last name:
+        =@billing_adress.lastname
+      %p
+        Phone:
+        =@billing_adress.phone
+      %p
+        Adress:
+        =@billing_adress.adress
+      %p
+        Street:
+        =@billing_adress.street
+      %p
+        Zipcode:
+        =@billing_adress.zipcode
+      %p
+        City:
+        =@billing_adress.city
+     
+      %p
+        Country:
+        =@billing_adress.country.name
+  %div{style: "float:left; width:25%"}
+    Shipments
+    =link_to "Edit", wizard_path(:delivery)
     %p
-      Adress:
-      =@shipping_adress.adress
+      =@delivery.name
+      , $
+      =number_with_precision(@delivery.price, precision: 2)
+  %div{style: "float:left; width:25%"}
+    Payment information
+    =link_to "Edit", wizard_path(:payment)
     %p
-      Street:
-      =@shipping_adress.street
+      Card number:
+      =@credit_card.number
     %p
-      Zipcode:
-      =@shipping_adress.zipcode
+      Cardholder name:
+      =@credit_card.firstname
+      =@credit_card.lastname
     %p
-      City:
-      =@shipping_adress.city
-   
-    %p
-      Country:
-      =@shipping_adress.country.name
-
-
-
-
-%div{style: "float:left; width:25%"}
-  Billing adress
-  =link_to "Edit", wizard_path(:adress)
-  %p
-
-%div{style: "float:left; width:25%"}
-  Shipments
-  =link_to "Edit", wizard_path(:delivery)
-  %p
-
-%div{style: "float:left; width:25%"}
-  Payment information
-  =link_to "Edit", wizard_path(:payment)
-  %p
-
+      Expiration date:
+      =@credit_card.expiration_month
+      #{"/"}
+      =@credit_card.expiration_year
 %br
 
 %table

@@ -7,7 +7,7 @@
 
 $(document).on "ajax:success", "form.book", (e, data, status, xhr) ->
   if data.price?
-    $(".total-price").html(data.price.toFixed(2)+"("+data.quantity+")");
+    $(".total-price").html("$"+data.price.toFixed(2)+"("+data.quantity+")");
     return false
   else
     return false
