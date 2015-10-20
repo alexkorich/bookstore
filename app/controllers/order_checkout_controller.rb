@@ -27,6 +27,7 @@ class OrderCheckoutController < ApplicationController
     @order=current_user.current_order
   case step
    when :adress
+
     @order.billing_adress=@order.billing_adress || Adress.new(billing_adress_attributes)
     @order.shipping_adress=@order.shipping_adress || Adress.new(shipping_adress_attributes)
     if @order.billing_adress.save && @order.shipping_adress.save
@@ -34,7 +35,7 @@ class OrderCheckoutController < ApplicationController
       render_wizard @order
       return
       else
-        flash[:notice] = @order.billing_adress.errors.full_messages+@order.shipping_adress.errors.full_messages
+        flash[:notice] = @order.billing_adress.errors.full_messages+["XX"]+@order.shipping_adress.errors.full_messages
         render_wizard
       end
   when :delivery
@@ -75,10 +76,10 @@ class OrderCheckoutController < ApplicationController
 
 
   def billing_adress_attributes
-    params.require(:billing_adress).permit(:firstname, :lastname,:street,:city, :country, :zipcode, :phone)
+    params.require(:billing_adress).permit(:firstname, :lastname,:street, :adress, :city, :country, :zipcode, :phone)
   end
   def shipping_adress_attributes
-    params.require(:shipping_adress).permit(:firstname, :lastname,:street,:city, :country, :zipcode, :phone)
+    params.require(:shipping_adress).permit(:firstname, :lastname,:street,:city, :country, :adress, :zipcode, :phone)
   end
 
   def credit_card_attributes

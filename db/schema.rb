@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 20151020141556) do
   enable_extension "plpgsql"
 
   create_table "adresses", force: :cascade do |t|
-    t.string   "adress"
     t.integer  "zipcode"
     t.string   "city"
     t.string   "phone"
@@ -28,6 +27,7 @@ ActiveRecord::Schema.define(version: 20151020141556) do
     t.string   "lastname"
     t.string   "street"
     t.integer  "country_id"
+    t.string   "adress"
   end
 
   create_table "authors", force: :cascade do |t|

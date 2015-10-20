@@ -17,7 +17,7 @@ class OrderItemsController < ApplicationController
         format.html { redirect_to :back, notice: 'Order item was successfully updated.' }
         format.json { render :show, status: :ok, location: @order }
       else
-        format.html { render :edit }
+        format.html { redirect_to :back, notice: @order_item.errors.full_messages}
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
