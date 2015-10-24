@@ -78,8 +78,9 @@ class Order < ActiveRecord::Base
     end
 
      state({
-    events: {pay: 'btn-success', process: 'btn-success', deliver: 'btn-success', cancel:'btn-danger'},
-    states: {in_queue: 'label-important', in_delivery: 'label-warning', delivered: 'label-success', cancelled:'label-danger'}
+    events: {process: 'btn-success', deliver: 'btn-success', cancel:'btn-danger'},
+    states: {in_queue: 'label-important', in_delivery: 'label-warning', delivered: 'label-success', cancelled:'label-danger'},
+    disable: [:pay]
   })
 
   end
