@@ -34,18 +34,35 @@ class OrderCheckoutController < ApplicationController
     @order=current_user.current_order
   case step
    when :adress
-    @order.billing_adress=@order.billing_adress || Adress.new(billing_adress_attributes)
-    @order.shipping_adress=@order.shipping_adress || Adress.new(shipping_adress_attributes)
-    if @order.billing_adress.save && @order.shipping_adress.save
-      puts "TTTTTTTTTTTTTTTTTTTTTTTTT"
-      render_wizard @order
-      return
+    if  @order.billing_adress && @order.shipping_adress
+
+      @order.billing_adress.update_attributes(billing_adress_attributes)
+      @order.shipping_adress.update_attributes(shipping_adress_attributes)
+    else
+      if request.params["useBilling?"]==["true"]
+        @order.billing_adress= Adress.new(billing_adress_attributes)
+        @order.shipping_adress= Adress.new(billing_adress_attributes)
+      elsif request.params["useBilling?"]==["false"]
+        @order.billing_adress=Adress.new(billing_adress_attributes)
+        @order.shipping_adress=Adress.new(shipping_adress_attributes)
+      end
+
+
+      end
+      if @order.billing_adress.save && @order.shipping_adress.save
+        render_wizard @order
+        return
       else
         flash[:notice] = @order.billing_adress.errors.full_messages+["XX"]+@order.shipping_adress.errors.full_messages
         render_wizard
       end
-  when :delivery
-      @order.delivery = @order.delivery || Delivery.find(params[:delivery])
+    when :delivery
+      if @order.delivery 
+        @order.delivery=Delivery.find(params[:delivery])
+      else
+        @order.delivery =Delivery.find(params[:delivery])
+      end
+       
       if @order.delivery.save
         render_wizard @order
         return
@@ -54,7 +71,12 @@ class OrderCheckoutController < ApplicationController
         render_wizard
       end
     when :payment
-      @order.credit_card = @order.credit_card || CreditCard.new(credit_card_attributes)
+      if @order.credit_card
+        @order.credit_card.update_attributes(credit_card_attributes)
+      else
+         @order.credit_card= CreditCard.new(credit_card_attributes)
+      end  
+     
       if @order.credit_card.save
       render_wizard @order
       return
