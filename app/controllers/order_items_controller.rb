@@ -37,6 +37,13 @@ class OrderItemsController < ApplicationController
       end
     end
   end
+   def destroy
+   @order_item.destroy
+    respond_to do |format|
+      format.html { redirect_to :back, notice: 'Item was successfully destroyed.' }
+      format.json { render json: {id:  @order_item.id, price: current_user.current_order.total_price, quantity: current_user.current_order.order_items.inject(0){|sum, item| sum+=item.quantity}}}
+    end
+  end
 
    private
     # Use callbacks to share common setup or constraints between actions.

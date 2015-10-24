@@ -6,9 +6,10 @@
         %td Price
         %td{style:"text-align:center"} Qty
         %td Total
+        %td
     %tbody
       -@order_items.each do |order_item|
-        %tr
+        %tr{"data-id" => order_item.id}
           %td
             %div{style:"float:left; width:50px"}
               =image_tag order_item.book.cover.thumb, class:"style-image"
@@ -16,7 +17,6 @@
               %p
                 %b
                   =order_item.book.title
-
               %p
                 =order_item.book.description
           %td
@@ -25,10 +25,16 @@
             =form_for( order_item, url: "order_items/#{order_item.id}", method: "put" ) do |f|
               =f.number_field :quantity, class: "numeric integer optional form-control" 
               =f.submit "Update", class:"btn btn-success"
+          %td    
+          %td
+            =link_to order_item_path(id:order_item.id, :format => :json), format: :json, remote:true, method: :delete do
+              %span.glyphicon.glyphicon-remove{style: "color:red"}  
+
     %tfoot
       %tr
-        %td{colspan: 4, style:"text-align:right"}
-          =current_user.current_order.total_price
+        %td.total-price-table{colspan: 4, style:"text-align:right"}<
+          $
+          =number_with_precision(current_user.current_order.total_price, precision: 2)
 -else
   %h3 Your cart is empty!
 %div
@@ -38,4 +44,3 @@
   =form_for "code", url: "order_items/promocode", html: {:class => "fl-right"}, :method => :post do |f|
     =f.text_field :code, required: false, label: false, placeholder: 'enter code here', class: "form-control fff"
     =f.submit "Update", class: "button_to btn btn-info"
-  
