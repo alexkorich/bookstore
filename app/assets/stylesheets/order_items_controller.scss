@@ -7,17 +7,39 @@
   float: left;
 }
 
+.quater-section{
+
+  float:left; 
+  width:250px; 
+  height:150px; 
+  // border-left:1px solid black;
+  border-right:1px solid black;
+  margin-left:2px;
+  margin-right:2px
+}
+.li{
+
+  margin-right:6px;
+}
 .numeric.integer.optional{
 
   display:block; float:left;
 
   width:70px;
 }
-
-.button_to{
-
-  display:inline
+.fl-left{
+display:block;
+float:left;
+ margin-left:3px;
 }
+.fl-right{
+display:block;
+float:right;
+ margin-right:3px;
+
+
+}
+
 .form-control.fff{
   width:200px;
   display:inline;

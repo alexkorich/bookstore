@@ -32,9 +32,10 @@
 -else
   %h3 Your cart is empty!
 %div
-  =button_to "Empty cart", 'order_items/empty', class: "button btn btn-danger",  disabled: @order==nil || @order.order_items.empty?, method: :post
-  =button_to "Continue shopping", root_path, method: :get, class: "btn btn-info"
-  =form_for "code", url: "order_items/promocode", html: {:class => "lil"}, :method => :post do |f|
+  =button_to "Empty cart", 'order_items/empty', class: "button btn btn-danger fl-left",  disabled: @order==nil || @order.order_items.empty?, method: :post
+  =button_to "Continue shopping", root_path, method: :get, class: "btn btn-info fl-left"
+  =button_to "Checkout", order_checkout_index_path, disabled: @order==nil || @order.order_items.empty?, :method => :get, class:"btn btn-success fl-right"
+  =form_for "code", url: "order_items/promocode", html: {:class => "fl-right"}, :method => :post do |f|
     =f.text_field :code, required: false, label: false, placeholder: 'enter code here', class: "form-control fff"
     =f.submit "Update", class: "button_to btn btn-info"
-  =button_to "Checkout", order_checkout_index_path, disabled: @order==nil || @order.order_items.empty?, :method => :get, class:"btn btn-success"
+  

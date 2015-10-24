@@ -1,23 +1,124 @@
-%p 
+%h3
+  Thanks for a purchasing!
+%h2
   Order
   =@order.id
-  =@order1.id
-%div{style: "float:left; width:25%"}
-  %p Shipping adress
-  %p 
-    =@order
-%div{style: "float:left; width:25%"}
-  %p Billing adress
-  %p 
-    / =@order.billing_adress.firstname+" "+@order.billing_adress.firstname
-  %p 
-    / =@order.billing_adress.street
-  %p 
-    / =@order.billing_adress.phone
-%div{style: "float:left; width:25%"}
-  Shipments
- 
-%div{style: "float:left; width:25%"}
-  Payment information
- 
+%div.quater-section
+  %h4.text-center
+    Billing adress
+  %ul.list-group.list-unstyled.tt{style:"display:block; float:left; width:30%"}
+    %li
+      Customer:
+    %li
+      Adress:
+    %li
+      City:
+    %li
+      Country:
+    %li
+      Phone:
+  %ul.list-group.list-unstyled.tt{style:"display:block; float:left"}
+    %li
+      =@order.billing_adress.firstname
+      =@order.billing_adress.lastname
+    %li
+      =@order.billing_adress.adress
+      =@order.billing_adress.street
+    %li
+      =@order.billing_adress.city
+      =@order.billing_adress.zipcode   
+    %li
+      =@order.billing_adress.country.name
+    %li
+      =@order.billing_adress.phone
+%div.quater-section
+  %h4.text-center
+    Shipping adress
+  %ul.list-group.list-unstyled.tt{style:"display:block; float:left; width:30%;"}
+    %li
+      Customer:
+    %li
+      Adress:
+    %li
+      City:
+    %li
+      Country:
+    %li
+      Phone:
+  %ul.list-group.list-unstyled.tt{style:"display:block; float:left"}
+    %li
+      =@order.shipping_adress.firstname
+      =@order.shipping_adress.lastname
+    %li
+      =@order.shipping_adress.adress
+      =@order.shipping_adress.street
+    %li
+      =@order.shipping_adress.city
+      =@order.shipping_adress.zipcode   
+    %li
+      =@order.shipping_adress.country.name
+    %li
+      =@order.shipping_adress.phone
+%div.quater-section
+  %h4.text-center
+    Shipments
+  =@order.delivery.name
+%div.quater-section
+  %h4.text-center
+    Payment information
+  %ul.list-group.list-unstyled.tt{style:"display:block; float:left; width:50%;"}
+    %li
+      Cardholder:
+    %li
+      Number:
+    %li
+      Valid thru:
+  %ul.list-group.list-unstyled.tt{style:"display:block; float:left"}
+    %li
+      =@order.credit_card.firstname
+      =@order.credit_card.lastname
+    %li
+      =@order.credit_card.number
+    %li
+      =@order.credit_card.expiration_month
+      ="/"
+      =@order.credit_card.expiration_year
 %br
+%table.table.table-bordered{style: "width:1015px"}
+  %thead
+    %tr
+      %td{style:"text-align:center; width:432px"} Book
+      %td{style:"text-align:center; width:50px"} Price
+      %td{style:"text-align:center; width:50px"} Qty
+      %td{style:"text-align:center; width:50px"} Total
+  %tbody
+    -@order.order_items.each do |order_item|
+      %tr
+        %td{style:"display:block"}
+          %div{style:"float:left; width:100px"}
+            =image_tag order_item.book.cover.thumb, class:"style-image"
+          %div{style:"float:left; min-width:400px"}
+            %p
+              %b
+                =order_item.book.title
+            %p
+              =order_item.book.description
+        %td
+          =order_item.book.price
+        %td
+          =order_item.quantity
+        %td
+          =order_item.price*=order_item.quantity
+  %tfoot
+    %tr
+      %td{colspan: 4, style:"text-align:right"}
+        SUBTOTAL:
+        =@order.order_items.each.inject(0){|sum, item| sum+=item.price*item.quantity}
+    %tr
+      %td{colspan: 4, style:"text-align:right"}
+        SHIPPING:
+        =@order.delivery.price
+    %tr
+      %td{colspan: 4, style:"text-align:right"}
+        TOTAL:
+        =@order.total_price

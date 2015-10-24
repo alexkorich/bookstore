@@ -25,7 +25,7 @@ class Order < ActiveRecord::Base
   end
 
 
-  belongs_to :customer
+  belongs_to :user
   belongs_to :credit_card
   belongs_to :delivery
   has_many :order_items
