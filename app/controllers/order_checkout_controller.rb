@@ -38,6 +38,16 @@ class OrderCheckoutController < ApplicationController
 
       @order.billing_adress.update_attributes(billing_adress_attributes)
       @order.shipping_adress.update_attributes(shipping_adress_attributes)
+      if request.params["useBilling?"]==["true"]
+        @order.billing_adress.update_attributes(billing_adress_attributes)
+        @order.shipping_adress.update_attributes(billing_adress_attributes)
+      elsif request.params["useBilling?"]==["false"]
+        @order.billing_adress.update_attributes(billing_adress_attributes)
+        @order.shipping_adress.update_attributes(shipping_adress_attributes)
+      end
+
+
+
     else
       if request.params["useBilling?"]==["true"]
         @order.billing_adress= Adress.new(billing_adress_attributes)
