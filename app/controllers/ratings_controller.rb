@@ -29,7 +29,7 @@ class RatingsController < ApplicationController
     respond_to do |format|
       if @rating.save
         format.html { redirect_to @rating, notice: 'Rating was successfully created.' }
-        format.json { render :show, status: :created, location: @rating }
+        format.json {render json: {"rating" => @rating.rating, "text_review"=> @rating.text_review, "author"=>@rating.user.firstname+" "+@rating.user.lastname}}
       else
         format.html { render :new }
         format.json { render json: @rating.errors, status: :unprocessable_entity }
@@ -70,6 +70,6 @@ class RatingsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def rating_params
       params[:rating][:user_id]=current_user.id
-      params.require(:rating).permit(:rating, :text_review, :book_id)
+      params.require(:rating).permit(:rating, :text_review, :book_id, :user_id)
     end
 end

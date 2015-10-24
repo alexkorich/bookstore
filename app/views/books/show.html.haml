@@ -6,24 +6,25 @@
 Author:
 = link_to "#{@book.author.firstname} #{@book.author.lastname}", @book.author 
 = @book.description
-= simple_form_for :book , url: home_add_to_cart_path, method: 'post' do |f| 
+= simple_form_for :book, remote:true, url: home_add_to_cart_path(:format => :json), method: 'post' do |f| 
   =f.input :id, as: :hidden , input_html: { value: @book.id }
   = f.input :quantity, as: :integer, :input_html => { :value => 1}, required: false, label: false 
-  = f.submit "Add to Cart"
+  = f.submit "Add to Cart",  class:"btn btn-warning"
 -if can? :create, Rating
   Rate this book!
-  = form_for :rating, url: ratings_path, method: 'post' do |f| 
+  = form_for :rating, html:{class: "rate-form"},remote: true, url: ratings_path(:format => :json), method: 'post' do |f| 
     = f.text_field :text_review 
     = f.hidden_field :book_id, value:@book.id  
     = f.select :rating, 1..10
-    = f.submit 'Leave rating' 
+    = f.submit 'Leave rating', class:"btn btn-warning"
 
-Reviews: 
-- @book.ratings.each do |rating|
-  %div
-    = rating.user.firstname  
-    = rating.user.lastname 
-    = rating.rating 
-    = rating.text_review 
-  
+Reviews:
+%div.rating
+  - @book.ratings.each do |rating|
+    %div
+      = rating.user.firstname  
+      = rating.user.lastname 
+      = rating.rating 
+      = rating.text_review 
+      
 = link_to 'Back', books_path
