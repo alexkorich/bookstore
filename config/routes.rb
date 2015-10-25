@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :wish_lists
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   root to: "home#index"
   
@@ -13,5 +14,7 @@ Rails.application.routes.draw do
   resources :ratings
   resources :order_checkout
   resources :order_items
+  resources :credit_cards
+  resources :wish_lists
   
 end

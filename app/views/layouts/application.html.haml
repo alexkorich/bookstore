@@ -8,23 +8,37 @@
   =stylesheet_link_tag 'application', '//fonts.googleapis.com/css?family=Lobster'
   %body
     #user-nav.nav.nav-tabs
-      %span{style: "font-family:lobster; font-size: 30px; margin-right:10px; margin-left:5px"} The Bookstore
-      = link_to "HOME", root_path
-      | 
-      = link_to("STORE", books_path)
-      |
+      .logo.in-header-left
+        %a.logo{href: "/"}
+          %span.logo-span
+            The Bookstore
+
+      .nav-links.in-header-left.vertical-center
+        %span
+          = link_to "HOME", root_path
+          | 
+          = link_to("STORE", books_path)
       - if user_signed_in?
-        %span.glyphicon.glyphicon-shopping-cart
-          Cart:
-          = link_to(" $#{number_with_precision(current_user.current_order.total_price, precision: 2)}(#{current_user.current_order.order_items.inject(0){|sum, item| sum+=item.quantity}})",  order_items_path,  { :class=>"total-price" })
-        Logged in as 
-        %strong 
-          = current_user.email
-        = link_to 'Settings', edit_user_registration_path
-        |
-        = link_to 'Orders',  orders_path
-        |
-        = link_to "Logout", destroy_user_session_path, method: :delete 
+        .cart.in-header-left
+          %span.glyphicon.glyphicon-shopping-cart
+            Cart:
+            = link_to(" $#{number_with_precision(current_user.current_order.total_price, precision: 2)}(#{current_user.current_order.order_items.inject(0){|sum, item| sum+=item.quantity}})",  order_items_path,  { :class=>"total-price" })
+        .logout.in-header-right
+          = button_to "Logout", destroy_user_session_path, class:"btn btn-default",method: :delete 
+        .dropdown.in-header-right
+          %button.btn.btn-default.dropdown-toggle{"type"=>"button", id: "dropdownMenu1", "data-toggle"=>"dropdown", "aria-haspopup"=>"true","aria-expanded"=>"true"}
+            My Bookstore
+            %span.caret
+          %ul.dropdown-menu{ "aria-labelledby"=>"dropdownMenu1"}
+            %li
+              = link_to "Wish list", wish_lists_path
+            %li
+              = link_to 'Credit cards',  credit_cards_path
+            %li
+              = link_to 'Orders',  orders_path
+            %li
+              = link_to 'Settings', edit_user_registration_path
+        
       - else
         = link_to "Sign up", new_user_registration_path
         |
@@ -36,5 +50,6 @@
       = content_tag :div, msg, id: "flash-#{name}"
     %div
       = yield 
-
- 
+    %footer
+      .panel.panel-body
+        fff

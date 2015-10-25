@@ -19,3 +19,31 @@
 
   width:100%
 }
+
+.logo-span{
+
+
+  font-family:lobster; font-size: 30px; margin-right:10px; margin-left:5px
+}
+
+.in-header-left{
+  height: 42px;
+  float:left;
+}
+.in-header-right{
+  float:right;
+}
+a.logo{
+
+  text-decoration:none;  color: #0000000;
+}
+
+a.logo:hover{
+text-decoration:none;  color: #0000000; background-color: transparent;
+
+}
+a.logo:focus { outline: 0; }
+a.logo {color:#000000;}      
+a.logo:visited {color:#000000;} 
+
+a.logo:active {color:#000000;} 
