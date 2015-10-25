@@ -35,7 +35,6 @@ class OrderCheckoutController < ApplicationController
   case step
    when :adress
     if  @order.billing_adress && @order.shipping_adress
-
       @order.billing_adress.update_attributes(billing_adress_attributes)
       @order.shipping_adress.update_attributes(shipping_adress_attributes)
       if request.params["useBilling?"]==["true"]
@@ -45,9 +44,6 @@ class OrderCheckoutController < ApplicationController
         @order.billing_adress.update_attributes(billing_adress_attributes)
         @order.shipping_adress.update_attributes(shipping_adress_attributes)
       end
-
-
-
     else
       if request.params["useBilling?"]==["true"]
         @order.billing_adress= Adress.new(billing_adress_attributes)
@@ -56,14 +52,12 @@ class OrderCheckoutController < ApplicationController
         @order.billing_adress=Adress.new(billing_adress_attributes)
         @order.shipping_adress=Adress.new(shipping_adress_attributes)
       end
-
-
       end
       if @order.billing_adress.save && @order.shipping_adress.save
         render_wizard @order
         return
       else
-        flash[:notice] = @order.billing_adress.errors.full_messages+["XX"]+@order.shipping_adress.errors.full_messages
+        flash.now[:notice] = @order.billing_adress.errors.full_messages+["XX"]+@order.shipping_adress.errors.full_messages
         render_wizard
       end
     when :delivery
@@ -72,7 +66,7 @@ class OrderCheckoutController < ApplicationController
       elsif request.params["delivery"]
         @order.delivery =Delivery.find(params[:delivery])
       else 
-        flash[:error] ="You need to chose correct delivery method. 1"
+        flash.now[:error] ="You need to chose correct delivery method. 1"
        
       end
        
@@ -81,20 +75,27 @@ class OrderCheckoutController < ApplicationController
         render_wizard @order
         return
       else
-        flash[:notice] = @order.delivery.errors.full_messages
+        flash.now[:notice] = @order.delivery.errors.full_messages
       end
       
     else
-      flash[:error] ="You need to chose correct delivery method. 2"
+      flash.now[:error] ="You need to chose correct delivery method. 2"
         
     end
-    render_wizard
+    render_wizard @order.delivery 
+
+
     when :payment
-      if @order.credit_card
-        @order.credit_card.update_attributes(credit_card_attributes)
+      if params["useExistingCard?"]
+        @order.credit_card=CreditCard.find(params["card_id"])
       else
-         @order.credit_card= CreditCard.new(credit_card_attributes)
-      end  
+        if @order.credit_card
+          @order.credit_card.update_attributes(credit_card_attributes)
+        else
+          @order.credit_card= CreditCard.new(credit_card_attributes)
+        end  
+      end
+     
      
       if @order.credit_card.save
       render_wizard @order
@@ -130,6 +131,7 @@ class OrderCheckoutController < ApplicationController
   end
 
   def credit_card_attributes
-    params.require(:credit_card).permit(:number, :cvv, :expiration_year, :expiration_month, :firstname, :lastname)
+    params[:credit_card][:user_id]=current_user.id
+    params.require(:credit_card).permit(:number, :cvv, :expiration_year, :expiration_month, :firstname, :lastname, :user_id)
   end
 end

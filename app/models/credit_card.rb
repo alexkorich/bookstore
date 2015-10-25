@@ -4,6 +4,6 @@ class CreditCard < ActiveRecord::Base
   # validates :number, uniqueness:true
   validates :expiration_month, :expiration_year, format: { with: /^\d+$/,  :multiline => true, message: "Digits only are allowed" }
 
-
+  belongs_to :user
   has_many :orders
 end

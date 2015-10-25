@@ -14,7 +14,26 @@
       =f.text_field :lastname, placeholder: "Last name"
     %P  
       =f.number_field :cvv, placeholder: "CVV"
-    =f.submit "Save and contunue"
+    =f.submit "Save and contunue", class: "btn btn-info"
+%div{style:'float:left; width:33.3%'} 
+ 
+  =form_tag wizard_path, method: :put do |f|
+    =check_box("useExistingCard?", '', {}, true, false)
+    =label "useExistingCard?", "Use existing card"
+    -current_user.credit_cards.each do |card|
+      %p
+        =radio_button_tag(:card_id, card.id)
+        =card.firstname+" "+card.lastname
+        %p
+        =card.number
+        =card.expiration_month
+        ="/"
+        =card.expiration_year
+    =submit_tag "Save", class: "btn btn-info"
+
+
+
+
 %div{style:'float:right; width:33.3%; height:100%'}
   %h3 Order summary 
   =@order.total_price
