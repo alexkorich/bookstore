@@ -84,15 +84,15 @@
       =@credit_card.expiration_year
 %br
 
-%table
+%table.table.table-bordered{style: "width:1015px"}
   %thead
     %tr
-      %td{style:"text-align:center; width:500px"} Book
-      %td Price
-      %td{style:"text-align:center"} Qty
-      %td{style:"text-align:center"} Total
+      %td{style:"text-align:center; width:432px"} Book
+      %td{style:"text-align:center; width:50px"} Price
+      %td{style:"text-align:center; width:50px"} Qty
+      %td{style:"text-align:center; width:50px"} Total
   %tbody
-    -current_user.current_order.order_items.each do |order_item|
+    -@order.order_items.each do |order_item|
       %tr
         %td{style:"display:block"}
           %div{style:"float:left; width:100px"}
@@ -108,11 +108,19 @@
         %td
           =order_item.quantity
         %td
-          =order_item.price
+          =order_item.price*=order_item.quantity
   %tfoot
     %tr
       %td{colspan: 4, style:"text-align:right"}
         SUBTOTAL:
-        =current_user.current_order.total_price
+        =@order.order_items.each.inject(0){|sum, item| sum+=item.price*item.quantity}
+    %tr
+      %td{colspan: 4, style:"text-align:right"}
+        SHIPPING:
+        =@order.delivery.price
+    %tr
+      %td{colspan: 4, style:"text-align:right"}
+        TOTAL:
+        =@order.total_price
 
 =button_to "Place order", wizard_path, class: "btn btn-info", method: :put
