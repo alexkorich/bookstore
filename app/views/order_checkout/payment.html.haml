@@ -1,7 +1,7 @@
 =render "step_to"
 %div{style:'float:left; width:33.3%'} 
   %h3 Credit card
-  =form_for :credit_card, url: wizard_path, method: :put do |f|
+  =form_for :credit_card, url: wizard_path, html:{class:"card-creation"},  method: :put do |f|
     %p
       =f.number_field :number, placeholder: "Card number"
     %p
@@ -17,7 +17,7 @@
     =f.submit "Save and contunue", class: "btn btn-info"
 %div{style:'float:left; width:33.3%'} 
  
-  =form_tag wizard_path, method: :put do |f|
+  =form_tag wizard_path, class: "card-selection", method: :put do |f|
     =check_box("useExistingCard?", '', {}, true, false)
     =label "useExistingCard?", "Use existing card"
     -current_user.credit_cards.each do |card|

@@ -1,72 +1,72 @@
-%h3 Checkout
 =render "step_to"
 %h4 Confirm
 %div{style: "float:left; width:100%"}
-  %div{style: "float:left; width:25%"}
-    Shipping adress
-    =link_to "Edit", wizard_path(:adress)
+  %div.quater-section
     %p
-      %p
-        First name:
-        =@shipping_adress.firstname
-      %p
-        Last name:
-        =@shipping_adress.lastname
-      %p
-        Phone:
-        =@shipping_adress.phone
-      %p
+      Billing adress
+      =link_to "Edit", wizard_path(:adress)
+    %ul.list-group.list-unstyled.tt{style:"display:block; float:left; width:30%"}
+      %li
+        Customer:
+      %li
         Adress:
-        =@shipping_adress.adress
-      %p
-        Street:
-        =@shipping_adress.street
-      %p
-        Zipcode:
-        =@shipping_adress.zipcode
-      %p
+      %li
         City:
-        =@shipping_adress.city
-     
-      %p
+      %li
         Country:
-        =@shipping_adress.country.name
-  %div{style: "float:left; width:25%"}
-    Billing adress
-    =link_to "Edit", wizard_path(:adress)
-    %p
-      %p
-        First name:
+      %li
+        Phone:
+    %ul.list-group.list-unstyled.tt{style:"display:block; float:left"}
+      %li
         =@billing_adress.firstname
-      %p
-        Last name:
         =@billing_adress.lastname
-      %p
-        Phone:
-        =@billing_adress.phone
-      %p
-        Adress:
+      %li
         =@billing_adress.adress
-      %p
-        Street:
         =@billing_adress.street
-      %p
-        Zipcode:
-        =@billing_adress.zipcode
-      %p
-        City:
+      %li
         =@billing_adress.city
-     
-      %p
-        Country:
+        =@billing_adress.zipcode   
+      %li
         =@billing_adress.country.name
-  %div{style: "float:left; width:25%"}
-    Shipments
-    =link_to "Edit", wizard_path(:delivery)
+      %li
+        =@billing_adress.phone
+  %div.quater-section
     %p
-      =@delivery.name
+      Shipping adress
+      =link_to "Edit", wizard_path(:adress)
+    %ul.list-group.list-unstyled.tt{style:"display:block; float:left; width:30%"}
+      %li
+        Customer:
+      %li
+        Adress:
+      %li
+        City:
+      %li
+        Country:
+      %li
+        Phone:
+    %ul.list-group.list-unstyled.tt{style:"display:block; float:left"}
+      %li
+        =@shipping_adress.firstname
+        =@shipping_adress.lastname
+      %li
+        =@shipping_adress.adress
+        =@shipping_adress.street
+      %li
+        =@shipping_adress.city
+        =@shipping_adress.zipcode   
+      %li
+        =@shipping_adress.country.name
+      %li
+        =@shipping_adress.phone
+  %div.quater-section
+    %p
+      Shipments
+      =link_to "Edit", wizard_path(:delivery)
+    %p
+      =@order.delivery.name
       , $
-      =number_with_precision(@delivery.price, precision: 2)
+      =number_with_precision(@order.delivery.price, precision:2)
   %div{style: "float:left; width:25%"}
     Payment information
     =link_to "Edit", wizard_path(:payment)

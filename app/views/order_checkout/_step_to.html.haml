@@ -1,5 +1,8 @@
 .div
-  =link_to "Billing & shipping", wizard_path(:adress)
-  =link_to  "Delivery", wizard_path(:delivery)
-  =link_to "Payment method", wizard_path(:payment)
-  =link_to "Confirm", wizard_path(:confirm)
+  %h3
+    %span{style: "margin-right:70px"}
+      Checkout
+    =link_to "Billing & shipping", wizard_path(:adress)
+    =link_to  "Delivery", wizard_path(:delivery)
+    =link_to "Payment method", wizard_path(:payment)
+    =link_to "Confirm", wizard_path(:confirm)

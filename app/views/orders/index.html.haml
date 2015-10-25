@@ -38,8 +38,35 @@
 
 %h4{style: "border-bottom:1px solid black"} Waiting for processing
 %table.table.table-bordered
-  %thead
+   %thead
+    %tr
+      %td{style:"text-align:center; width:500px"} Book
+      %td Price
+      %td{style:"text-align:center"} Qty
+      %td{style:"text-align:center"} Total
   %tbody
+    -current_user.where.order_items.each do |order_item|
+      %tr
+        %td{style:"display:block"}
+          %div{style:"float:left; width:100px"}
+            =image_tag order_item.book.cover.thumb, class:"style-image"
+          %div{style:"float:left; min-width:400px"}
+            %p
+              %b
+                =order_item.book.title
+            %p
+              =order_item.book.description
+        %td
+          =order_item.book.price
+        %td
+          =order_item.quantity
+        %td
+          =order_item.price
+  %tfoot
+    %tr
+      %td{colspan: 4, style:"text-align:right"}
+        SUBTOTAL:
+        =current_user.current_order.total_price
   
 %h4{style: "border-bottom:1px solid black"} In delivery
 
