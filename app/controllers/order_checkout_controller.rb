@@ -52,7 +52,7 @@ class OrderCheckoutController < ApplicationController
       if request.params["useBilling?"]==["true"]
         @order.billing_adress= Adress.new(billing_adress_attributes)
         @order.shipping_adress= Adress.new(billing_adress_attributes)
-      elsif request.params["useBilling?"]==["false"]
+      else
         @order.billing_adress=Adress.new(billing_adress_attributes)
         @order.shipping_adress=Adress.new(shipping_adress_attributes)
       end
@@ -69,17 +69,26 @@ class OrderCheckoutController < ApplicationController
     when :delivery
       if @order.delivery 
         @order.delivery=Delivery.find(params[:delivery])
-      else
+      elsif request.params["delivery"]
         @order.delivery =Delivery.find(params[:delivery])
+      else 
+        flash[:error] ="You need to chose correct delivery method. 1"
+       
       end
        
-      if @order.delivery.save
+      if @order.delivery
+        if @order.delivery.save
         render_wizard @order
         return
       else
-        flash[:notice] = @order.errors.full_messages
-        render_wizard
+        flash[:notice] = @order.delivery.errors.full_messages
       end
+      
+    else
+      flash[:error] ="You need to chose correct delivery method. 2"
+        
+    end
+    render_wizard
     when :payment
       if @order.credit_card
         @order.credit_card.update_attributes(credit_card_attributes)
