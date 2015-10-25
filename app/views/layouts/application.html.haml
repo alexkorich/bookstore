@@ -4,10 +4,11 @@
   %title Bookstore
   = stylesheet_link_tag "application", media: "all"
   = javascript_include_tag "application"
+  = csrf_meta_tags
   =stylesheet_link_tag 'application', '//fonts.googleapis.com/css?family=Lobster'
   %body
     #user-nav.nav.nav-tabs
-      %span{style: "font-family:lobster; font-size: 30px; margin-right:10px"} The Bookstore
+      %span{style: "font-family:lobster; font-size: 30px; margin-right:10px; margin-left:5px"} The Bookstore
       = link_to "HOME", root_path
       | 
       = link_to("STORE", books_path)
