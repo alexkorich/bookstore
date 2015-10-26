@@ -2,7 +2,7 @@
 = @category.title.capitalize 
 books:
 
--@category.books.each do |book|
+-@books.each do |book|
   .book-container
     = image_tag  book.cover.thumb
     = link_to book.title, book
@@ -12,4 +12,5 @@ books:
       = f.input :quantity, as: :integer, :input_html => { :value => 1}, required: false, label: false
       = f.submit "Add to Cart", class:"btn btn-warning"
 %br
+=paginate @books
 = render 'home/categories'

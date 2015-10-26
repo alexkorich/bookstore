@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+(1..100).each do |i|
+  Book.create(title: "Book"+i.to_s, price: i.to_i, in_stock: 12, "author_id"=> 1, "category_id" => 1)
+end

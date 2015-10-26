@@ -9,3 +9,9 @@ $(document).on "ajax:success", "form.book", (e, data, status, xhr) ->
     return false
   else
     return false
+$(document).ready(->
+  $(".raty").raty({ number: 10, target:"#rating_rating", targetType : 'score', targetKeep : true})
+
+
+
+  )

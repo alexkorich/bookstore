@@ -23,7 +23,7 @@ gem 'simplecov', :require => false, :group => :test
 gem "omniauth-facebook"
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-
+gem 'jquery-raty-rails', github: 'bmc/jquery-raty-rails'
 # #############################
 
 

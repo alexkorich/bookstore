@@ -1,3 +1,5 @@
+
+
 - @books.each do |book|
   .book-container
     = image_tag  book.cover.thumb
@@ -9,3 +11,5 @@
       = f.submit "Add to Cart", class:"btn btn-warning"
 %br
 = render 'home/categories'
+
+= paginate @books

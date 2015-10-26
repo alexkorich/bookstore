@@ -12,10 +12,11 @@ Author:
   = f.submit "Add to Cart",  class:"btn btn-warning"
 -if can? :create, Rating
   Rate this book!
-  = form_for :rating, html:{class: "rate-form"},remote: true, url: ratings_path(:format => :json), method: 'post' do |f| 
-    = f.text_field :text_review 
+  = form_for :rating, html:{class: "rate-form"}, remote: true, url: ratings_path(:format => :json), method: 'post' do |f|
+    .raty
+    = f.text_field :text_review
+    = f.hidden_field :rating
     = f.hidden_field :book_id, value:@book.id  
-    = f.select :rating, 1..10
     = f.submit 'Leave rating', class:"btn btn-warning"
 
 Reviews:
