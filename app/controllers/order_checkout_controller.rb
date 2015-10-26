@@ -1,8 +1,8 @@
 class OrderCheckoutController < ApplicationController
  include Wicked::Wizard
-
+  helper_method :step_index_for, :current_step_index, :wizard_path, :next_wizard_path
   steps :adress, :delivery, :payment, :confirm, :complete
-
+  
   def show
     @order=current_user.current_order
     @id=@order.id
@@ -19,20 +19,25 @@ class OrderCheckoutController < ApplicationController
       @billing_adress = @order.billing_adress
       @shipping_adress = @order.shipping_adress
       @delivery = @order.delivery
-
     when :complete
       @order=Order.where(user_id: current_user.id, state: "in_queue").order("updated_at").last
-       @credit_card = @order.credit_card
+      @credit_card = @order.credit_card
       @billing_adress = @order.billing_adress
       @shipping_adress = @order.shipping_adress
       @delivery = @order.delivery
+
     end
     render_wizard
   end
 
   def update
     @order=current_user.current_order
-  case step
+    puts "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+    puts params
+    k = step.to_s
+    k = 'active' if step == :confirm
+    @order.update_attributes(status: k)
+     case step
    when :adress
     if  @order.billing_adress && @order.shipping_adress
       @order.billing_adress.update_attributes(billing_adress_attributes)
@@ -67,9 +72,7 @@ class OrderCheckoutController < ApplicationController
         @order.delivery =Delivery.find(params[:delivery])
       else 
         flash.now[:error] ="You need to chose correct delivery method. 1"
-       
       end
-       
       if @order.delivery
         if @order.delivery.save
         render_wizard @order
@@ -77,14 +80,10 @@ class OrderCheckoutController < ApplicationController
       else
         flash.now[:notice] = @order.delivery.errors.full_messages
       end
-      
     else
       flash.now[:error] ="You need to chose correct delivery method. 2"
-        
     end
     render_wizard @order.delivery 
-
-
     when :payment
       if params["useExistingCard?"]
         @order.credit_card=CreditCard.find(params["card_id"])
@@ -95,8 +94,6 @@ class OrderCheckoutController < ApplicationController
           @order.credit_card= CreditCard.new(credit_card_attributes)
         end  
       end
-     
-     
       if @order.credit_card.save
       render_wizard @order
       return
@@ -105,17 +102,19 @@ class OrderCheckoutController < ApplicationController
         render_wizard
       end
     when :confirm
-      @order.pay
+      
       @order.completed_date = Time.current
 
       if @order.save
+        @order.pay
       render_wizard @order
-
       return 
-        else redirect_to '/'
+        else 
+          flash[:notice] = @order.errors.full_messages
+          render_wizard
       end
       when :complete
-        2
+       
       render_wizard @order
   
   end
@@ -134,4 +133,5 @@ class OrderCheckoutController < ApplicationController
     params[:credit_card][:user_id]=current_user.id
     params.require(:credit_card).permit(:number, :cvv, :expiration_year, :expiration_month, :firstname, :lastname, :user_id)
   end
+
 end

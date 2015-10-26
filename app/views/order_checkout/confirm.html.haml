@@ -17,19 +17,20 @@
       %li
         Phone:
     %ul.list-group.list-unstyled.tt{style:"display:block; float:left"}
-      %li
-        =@billing_adress.firstname
-        =@billing_adress.lastname
-      %li
-        =@billing_adress.adress
-        =@billing_adress.street
-      %li
-        =@billing_adress.city
-        =@billing_adress.zipcode   
-      %li
-        =@billing_adress.country.name
-      %li
-        =@billing_adress.phone
+      -if @billing_adress
+        %li
+          =@billing_adress.firstname
+          =@billing_adress.lastname
+        %li
+          =@billing_adress.adress
+          =@billing_adress.street
+        %li
+          =@billing_adress.city
+          =@billing_adress.zipcode   
+        %li
+          =@billing_adress.country.name
+        %li
+          =@billing_adress.phone
   %div.quater-section
     %p
       Shipping adress
@@ -46,6 +47,7 @@
       %li
         Phone:
     %ul.list-group.list-unstyled.tt{style:"display:block; float:left"}
+    -if @shipping_adress
       %li
         =@shipping_adress.firstname
         =@shipping_adress.lastname
@@ -63,25 +65,27 @@
     %p
       Shipments
       =link_to "Edit", wizard_path(:delivery)
-    %p
-      =@order.delivery.name
+    -if @order.delivery
+      %p
+        =@order.delivery.name
       , $
       =number_with_precision(@order.delivery.price, precision:2)
   %div{style: "float:left; width:25%"}
     Payment information
     =link_to "Edit", wizard_path(:payment)
-    %p
-      Card number:
-      =@credit_card.number
-    %p
-      Cardholder name:
-      =@credit_card.firstname
-      =@credit_card.lastname
-    %p
-      Expiration date:
-      =@credit_card.expiration_month
-      #{"/"}
-      =@credit_card.expiration_year
+    -if @credit_card
+      %p
+        Card number:
+        =@credit_card.number
+      %p
+        Cardholder name:
+        =@credit_card.firstname
+        =@credit_card.lastname
+      %p
+        Expiration date:
+        =@credit_card.expiration_month
+        #{"/"}
+        =@credit_card.expiration_year
 %br
 
 %table.table.table-bordered{style: "width:1015px"}
@@ -117,7 +121,8 @@
     %tr
       %td{colspan: 4, style:"text-align:right"}
         SHIPPING:
-        =@order.delivery.price
+        -if @order.delivery
+          =@order.delivery.price
     %tr
       %td{colspan: 4, style:"text-align:right"}
         TOTAL:
