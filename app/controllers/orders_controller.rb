@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_order, only: [:show, :edit, :update, :destroy, :promocode]
 
   # GET /orders
   # GET /orders.json
@@ -39,6 +39,23 @@ class OrdersController < ApplicationController
 
   # PATCH/PUT /orders/1
   # PATCH/PUT /orders/1.json
+
+  def promocode
+    a=params[:code][:code]
+    if a
+      if @order.gift_code(a)==true
+      respond_to do |format|
+        format.html { redirect_to :back, notice: 'Cart updated!.' }
+        format.json { render json: {id:  @order_item.id, price: current_user.current_order.total_price, quantity: current_user.current_order.order_items.inject(0){|sum, item| sum+=item.quantity}}}
+      end  
+     else
+      respond_to do |format|
+       format.html {  redirect_to :back, notice: @order.gift_code(a) }
+       format.json { render json: @order.errors, status: :unprocessable_entity }
+     end
+    end
+    end
+  end
   def update
     
     respond_to do |format|

@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
 
-  resources :wish_lists
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   root to: "home#index"
   
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  post 'home/add_to_cart' => 'home#add_to_cart'
-  post 'order_items/empty' => 'order_items#empty'
+  
+  post 'home/add_to_cart'       => 'home#add_to_cart'
+  post 'order_items/empty'      => 'order_items#empty'
+  post 'orders/promocode'       => "orders#promocode"
   resources :books
   resources :authors
   resources :categories

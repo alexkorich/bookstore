@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <script src='./assets/0.10.0/application.js' type='text/javascript'></script>    
     <link href='./assets/0.10.0/application.css' media='screen, projection, print' rel='stylesheet' type='text/css'>
-    <link rel="shortcut icon" type="image/png" href="./assets/0.10.0/favicon_red.png" />
+    <link rel="shortcut icon" type="image/png" href="./assets/0.10.0/favicon_yellow.png" />
     <link rel="icon" type="image/png" href="./assets/0.10.0/favicon.png" />
   </head>
   
@@ -14,27 +14,27 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-10-26T22:20:42+02:00">2015-10-26T22:20:42+02:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-10-26T22:42:02+02:00">2015-10-26T22:42:02+02:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">69.77%</span></span>
+    (<span class="covered_percent"><span class="yellow">81.4%</span></span>
      covered at
      <span class="covered_strength">
-       <span class="red">
-         0.69
+       <span class="green">
+         1.07
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
-    <b>4</b> files in total.
+    <b>5</b> files in total.
     <b>86</b> relevant lines. 
-    <span class="green"><b>60</b> lines covered</span> and
-    <span class="red"><b>26</b> lines missed </span>
+    <span class="green"><b>70</b> lines covered</span> and
+    <span class="red"><b>16</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -51,23 +51,43 @@
     <tbody>
       
       <tr>
-        <td class="strong"><a href="#4c11b9ba59147cae58bd5cd18f6087f39df789ac" class="src_link" title="app/models/book.rb">app/models/book.rb</a></td>
+        <td class="strong"><a href="#06ecb29d031cf57d507000166d18059cbde8cc4b" class="src_link" title="app/models/adress.rb">app/models/adress.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>13</td>
+        <td>9</td>
+        <td>4</td>
+        <td>4</td>
+        <td>0</td>
+        <td>1.0</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#1df189e174b99545a8e7e4bf1db856445dd15f68" class="src_link" title="app/models/credit_card.rb">app/models/credit_card.rb</a></td>
+        <td class="green strong">100.0 %</td>
         <td>8</td>
-        <td>8</td>
+        <td>7</td>
+        <td>7</td>
+        <td>0</td>
+        <td>1.0</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#77e2ec0eee7553da478f3e5cbc55c76d4395963f" class="src_link" title="app/models/delivery.rb">app/models/delivery.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>6</td>
+        <td>5</td>
+        <td>5</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#8d91bbfc37b6ebb732580cc83c7b9590990b811a" class="src_link" title="app/models/order.rb">app/models/order.rb</a></td>
-        <td class="red strong">61.9 %</td>
-        <td>117</td>
-        <td>63</td>
-        <td>39</td>
-        <td>24</td>
-        <td>0.6</td>
+        <td class="red strong">75.0 %</td>
+        <td>118</td>
+        <td>64</td>
+        <td>48</td>
+        <td>16</td>
+        <td>1.1</td>
       </tr>
       
       <tr>
@@ -78,16 +98,6 @@
         <td>6</td>
         <td>0</td>
         <td>1.0</td>
-      </tr>
-      
-      <tr>
-        <td class="strong"><a href="#620c207a063e195b932740bf655ded43b6d8e504" class="src_link" title="app/uploaders/book_cover_uploader.rb">app/uploaders/book_cover_uploader.rb</a></td>
-        <td class="red strong">77.78 %</td>
-        <td>51</td>
-        <td>9</td>
-        <td>7</td>
-        <td>2</td>
-        <td>0.8</td>
       </tr>
       
     </tbody>
@@ -106,13 +116,13 @@
     
       <div class="source_files">
       
-        <div class="source_table" id="4c11b9ba59147cae58bd5cd18f6087f39df789ac">
+        <div class="source_table" id="06ecb29d031cf57d507000166d18059cbde8cc4b">
   <div class="header">
-    <h3>app/models/book.rb</h3>
+    <h3>app/models/adress.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>8</b> relevant lines. 
-      <span class="green"><b>8</b> lines covered</span> and
+      <b>4</b> relevant lines. 
+      <span class="green"><b>4</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -123,37 +133,37 @@
         <li class="covered" data-hits="1" data-linenumber="1">
           <span class="hits">1</span>
           
-          <code class="ruby">class Book &lt; ActiveRecord::Base</code>
+          <code class="ruby">class Adress &lt; ActiveRecord::Base</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="2">
           
           
-          <code class="ruby">  </code>
+          <code class="ruby"> </code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="3">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="3">
           
-          <code class="ruby">  validates :title, :price, :in_stock, presence: true</code>
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
-          <code class="ruby">  validates :price, numericality: {greater_than_or_equal_to: 0}</code>
+          <code class="ruby">  belongs_to :country</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="5">
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="6">
           <span class="hits">1</span>
           
-          <code class="ruby">  validates :in_stock, numericality: {greater_than_or_equal_to: 0, only_integer: true}</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="6">
-          
-          
-          <code class="ruby"></code>
+          <code class="ruby">  validates  :adress, :zipcode, :city, :phone, :country, :firstname, :lastname, presence:true</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="7">
@@ -165,34 +175,130 @@
         <li class="covered" data-hits="1" data-linenumber="8">
           <span class="hits">1</span>
           
-          <code class="ruby">  belongs_to :author</code>
+          <code class="ruby">   validates :zipcode, numericality: true</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="9">
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="1df189e174b99545a8e7e4bf1db856445dd15f68">
+  <div class="header">
+    <h3>app/models/credit_card.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>7</b> relevant lines. 
+      <span class="green"><b>7</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
           <span class="hits">1</span>
           
-          <code class="ruby">  belongs_to :category</code>
+          <code class="ruby">class CreditCard &lt; ActiveRecord::Base</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="10">
+        <li class="covered" data-hits="1" data-linenumber="2">
           <span class="hits">1</span>
           
-          <code class="ruby">  has_many :ratings, dependent: :destroy</code>
+          <code class="ruby">  validates :number, :cvv, :expiration_month, :expiration_year, :firstname, :lastname, presence:true</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="11">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="12">
+        <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">  mount_uploader :cover, BookCoverUploader</code>
+          <code class="ruby">  validates :number, :cvv, numericality:{only_integer: true}</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="13">
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  validates :number, uniqueness:true</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="5">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  validates :expiration_month, :expiration_year, format: { with: /^\d+$/,  :multiline =&gt; true, message: &quot;Digits only are allowed&quot; }</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="6">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  belongs_to :user</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="7">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  has_many :orders</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="77e2ec0eee7553da478f3e5cbc55c76d4395963f">
+  <div class="header">
+    <h3>app/models/delivery.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>5</b> relevant lines. 
+      <span class="green"><b>5</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">class Delivery &lt; ActiveRecord::Base</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  validates :name, presence:true</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  validates :name, uniqueness:true</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  validates :price, presence:true</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="5">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  validates :price, numericality: {greater_than: 0}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="6">
           
           
           <code class="ruby">end</code>
@@ -205,11 +311,11 @@
         <div class="source_table" id="8d91bbfc37b6ebb732580cc83c7b9590990b811a">
   <div class="header">
     <h3>app/models/order.rb</h3>
-    <h4><span class="red">61.9 %</span> covered</h4>
+    <h4><span class="red">75.0 %</span> covered</h4>
     <div>
-      <b>63</b> relevant lines. 
-      <span class="green"><b>39</b> lines covered</span> and
-      <span class="red"><b>24</b> lines missed.</span>
+      <b>64</b> relevant lines. 
+      <span class="green"><b>48</b> lines covered</span> and
+      <span class="red"><b>16</b> lines missed.</span>
     </div>
   </div>
   
@@ -462,8 +568,8 @@
           <code class="ruby">   def active?</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="42">
-          
+        <li class="covered" data-hits="10" data-linenumber="42">
+          <span class="hits">10</span>
           
           <code class="ruby">    status == &#39;active&#39;</code>
         </li>
@@ -486,8 +592,8 @@
           <code class="ruby">  def active_or_adress?</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="46">
-          
+        <li class="covered" data-hits="4" data-linenumber="46">
+          <span class="hits">4</span>
           
           <code class="ruby">    (status || &#39;&#39;).include?(&#39;adress&#39;) || active?</code>
         </li>
@@ -510,8 +616,8 @@
           <code class="ruby">  def active_or_delivery?</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="50">
-          
+        <li class="covered" data-hits="2" data-linenumber="50">
+          <span class="hits">2</span>
           
           <code class="ruby">    (status || &#39;&#39;).include?(&#39;delivery&#39;) || active?</code>
         </li>
@@ -534,8 +640,8 @@
           <code class="ruby">  def active_or_payment?</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="54">
-          
+        <li class="covered" data-hits="2" data-linenumber="54">
+          <span class="hits">2</span>
           
           <code class="ruby">    (status || &#39;&#39;).include?(&#39;payment&#39;) || active?</code>
         </li>
@@ -576,14 +682,14 @@
           <code class="ruby">	def total_price</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="61">
-          
+        <li class="covered" data-hits="3" data-linenumber="61">
+          <span class="hits">3</span>
           
           <code class="ruby">    a=0</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="62">
-          
+        <li class="covered" data-hits="3" data-linenumber="62">
+          <span class="hits">3</span>
           
           <code class="ruby">    self.order_items.each do |item|</code>
         </li>
@@ -606,8 +712,8 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="66">
-          
+        <li class="covered" data-hits="3" data-linenumber="66">
+          <span class="hits">3</span>
           
           <code class="ruby">    if self.delivery</code>
         </li>
@@ -624,286 +730,286 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="69">
+        <li class="covered" data-hits="3" data-linenumber="69">
+          <span class="hits">3</span>
           
-          
-          <code class="ruby">    a</code>
+          <code class="ruby">    self.total_price=a</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="70">
+        <li class="covered" data-hits="3" data-linenumber="70">
+          <span class="hits">3</span>
           
-          
-          <code class="ruby">	end</code>
+          <code class="ruby">    a</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="71">
           
           
+          <code class="ruby">	end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="72">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="72">
+        <li class="covered" data-hits="1" data-linenumber="73">
           <span class="hits">1</span>
           
           <code class="ruby">  def gift_code(code)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="73">
+        <li class="missed" data-hits="0" data-linenumber="74">
           
           
           <code class="ruby">    if self.state ==&quot;in_progress&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="74">
-          
-          
-          <code class="ruby">      </code>
-        </li>
-      
         <li class="never" data-hits="" data-linenumber="75">
           
           
-          <code class="ruby">    else</code>
+          <code class="ruby">      </code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="76">
           
           
-          <code class="ruby">      return</code>
+          <code class="ruby">    else</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="77">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby">      return</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="78">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="79">
           
           
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="80">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="80">
+        <li class="covered" data-hits="1" data-linenumber="81">
           <span class="hits">1</span>
           
           <code class="ruby">	def add_book(book, quantity)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="81">
+        <li class="missed" data-hits="0" data-linenumber="82">
           
           
           <code class="ruby">    i=self.order_items.find_by(book: book)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="82">
+        <li class="missed" data-hits="0" data-linenumber="83">
           
           
           <code class="ruby">    if i </code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="83">
+        <li class="missed" data-hits="0" data-linenumber="84">
           
           
           <code class="ruby">      i.quantity+=quantity</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="84">
+        <li class="never" data-hits="" data-linenumber="85">
           
           
           <code class="ruby">      </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="85">
+        <li class="never" data-hits="" data-linenumber="86">
           
           
           <code class="ruby">        else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="86">
+        <li class="missed" data-hits="0" data-linenumber="87">
           
           
           <code class="ruby">      i=self.order_items.build(price:book.price, quantity:quantity, book:book)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="87">
+        <li class="never" data-hits="" data-linenumber="88">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="88">
+        <li class="missed" data-hits="0" data-linenumber="89">
           
           
           <code class="ruby">    i.save</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="89">
+        <li class="never" data-hits="" data-linenumber="90">
           
           
           <code class="ruby"> 	end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="90">
+        <li class="never" data-hits="" data-linenumber="91">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="91">
+        <li class="covered" data-hits="1" data-linenumber="92">
           <span class="hits">1</span>
           
           <code class="ruby">  def notify_delivery</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="92">
+        <li class="never" data-hits="" data-linenumber="93">
           
           
           <code class="ruby">    </code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="93">
+        <li class="missed" data-hits="0" data-linenumber="94">
           
           
           <code class="ruby">    UserMailer.delivery(User.find(self.user_id), self).deliver_now</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="94">
+        <li class="never" data-hits="" data-linenumber="95">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="95">
+        <li class="never" data-hits="" data-linenumber="96">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="96">
+        <li class="covered" data-hits="1" data-linenumber="97">
           <span class="hits">1</span>
           
           <code class="ruby">  def notify_pay</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="97">
+        <li class="never" data-hits="" data-linenumber="98">
           
           
           <code class="ruby">    </code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="98">
+        <li class="missed" data-hits="0" data-linenumber="99">
           
           
           <code class="ruby">     UserMailer.pay(User.find(self.user_id), self).deliver_now</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="99">
+        <li class="never" data-hits="" data-linenumber="100">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="100">
+        <li class="never" data-hits="" data-linenumber="101">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="101">
+        <li class="covered" data-hits="1" data-linenumber="102">
           <span class="hits">1</span>
           
           <code class="ruby">  rails_admin do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="102">
+        <li class="missed" data-hits="0" data-linenumber="103">
           
           
           <code class="ruby">    list do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="103">
+        <li class="missed" data-hits="0" data-linenumber="104">
           
           
           <code class="ruby">      field :id</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="104">
+        <li class="missed" data-hits="0" data-linenumber="105">
           
           
           <code class="ruby">      field :state, :state</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="105">
+        <li class="never" data-hits="" data-linenumber="106">
           
           
           <code class="ruby">    end</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="106">
-          
-          
-          <code class="ruby">    edit do</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="107">
           
           
+          <code class="ruby">    edit do</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="108">
+          
+          
           <code class="ruby">      field :state, :state</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="108">
+        <li class="never" data-hits="" data-linenumber="109">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="109">
+        <li class="missed" data-hits="0" data-linenumber="110">
           
           
           <code class="ruby">    state({</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="110">
+        <li class="never" data-hits="" data-linenumber="111">
           
           
           <code class="ruby">      events: {process: &#39;btn-success&#39;, deliver: &#39;btn-success&#39;, cancel:&#39;btn-danger&#39;},</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="111">
+        <li class="never" data-hits="" data-linenumber="112">
           
           
           <code class="ruby">      states: {in_queue: &#39;label-important&#39;, in_delivery: &#39;label-warning&#39;, delivered: &#39;label-success&#39;, cancelled:&#39;label-danger&#39;},</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="112">
+        <li class="never" data-hits="" data-linenumber="113">
           
           
           <code class="ruby">      disable: [:pay]</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="113">
+        <li class="never" data-hits="" data-linenumber="114">
           
           
           <code class="ruby">    })</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="114">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
         <li class="never" data-hits="" data-linenumber="115">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="116">
@@ -913,6 +1019,12 @@
         </li>
       
         <li class="never" data-hits="" data-linenumber="117">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="118">
           
           
           <code class="ruby">end</code>
@@ -985,330 +1097,6 @@
         </li>
       
         <li class="never" data-hits="" data-linenumber="9">
-          
-          
-          <code class="ruby">end</code>
-        </li>
-      
-    </ol>
-  </pre>
-</div>
-      
-        <div class="source_table" id="620c207a063e195b932740bf655ded43b6d8e504">
-  <div class="header">
-    <h3>app/uploaders/book_cover_uploader.rb</h3>
-    <h4><span class="red">77.78 %</span> covered</h4>
-    <div>
-      <b>9</b> relevant lines. 
-      <span class="green"><b>7</b> lines covered</span> and
-      <span class="red"><b>2</b> lines missed.</span>
-    </div>
-  </div>
-  
-  <pre>
-    <ol>
-      
-        <li class="never" data-hits="" data-linenumber="1">
-          
-          
-          <code class="ruby"># encoding: utf-8</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="2">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="3">
-          <span class="hits">1</span>
-          
-          <code class="ruby">class BookCoverUploader &lt; CarrierWave::Uploader::Base</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="4">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="5">
-          
-          
-          <code class="ruby">  # Include RMagick or MiniMagick support:</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="6">
-          
-          
-          <code class="ruby">  # include CarrierWave::RMagick</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="7">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  include CarrierWave::MiniMagick</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="8">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="9">
-          
-          
-          <code class="ruby">  # Choose what kind of storage to use for this uploader:</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="10">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  storage :file</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="11">
-          
-          
-          <code class="ruby">  # storage :fog</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="12">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="13">
-          
-          
-          <code class="ruby">  # Override the directory where uploaded files will be stored.</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="14">
-          
-          
-          <code class="ruby">  # This is a sensible default for uploaders that are meant to be mounted:</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="15">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def store_dir</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="16">
-          
-          
-          <code class="ruby">    &quot;uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="17">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="18">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="19">
-          
-          
-          <code class="ruby">  # Provide a default URL as a default if there hasn&#39;t been a file uploaded:</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="20">
-          
-          
-          <code class="ruby">  # def default_url</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="21">
-          
-          
-          <code class="ruby">  #   # For Rails 3.1+ asset pipeline compatibility:</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="22">
-          
-          
-          <code class="ruby">  #   # ActionController::Base.helpers.asset_path(&quot;fallback/&quot; + [version_name, &quot;default.png&quot;].compact.join(&#39;_&#39;))</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="23">
-          
-          
-          <code class="ruby">  #</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="24">
-          
-          
-          <code class="ruby">  #   &quot;/images/fallback/&quot; + [version_name, &quot;default.png&quot;].compact.join(&#39;_&#39;)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="25">
-          
-          
-          <code class="ruby">  # end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="26">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="27">
-          
-          
-          <code class="ruby">  # Process files as they are uploaded:</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="28">
-          
-          
-          <code class="ruby">  # process :scale =&gt; [200, 300]</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="29">
-          
-          
-          <code class="ruby">  #</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="30">
-          
-          
-          <code class="ruby">  # def scale(width, height)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="31">
-          
-          
-          <code class="ruby">  #   # do something</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="32">
-          
-          
-          <code class="ruby">  # end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="33">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="34">
-          
-          
-          <code class="ruby">  # Create different versions of your uploaded files:</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="35">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  version :thumb do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="36">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    process resize_to_limit: [150, 150]</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="37">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="38">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="39">
-          
-          
-          <code class="ruby">  # Add a white list of extensions which are allowed to be uploaded.</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="40">
-          
-          
-          <code class="ruby">  # For images you might use something like this:</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="41">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def extension_white_list</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="42">
-          
-          
-          <code class="ruby">    %w(jpg jpeg gif png)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="43">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="44">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="45">
-          
-          
-          <code class="ruby">  # Override the filename of the uploaded files:</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="46">
-          
-          
-          <code class="ruby">  # Avoid using model.id or version_name here, see uploader/store.rb for details.</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="47">
-          
-          
-          <code class="ruby">  # def filename</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="48">
-          
-          
-          <code class="ruby">  #   &quot;something.jpg&quot; if original_filename</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="49">
-          
-          
-          <code class="ruby">  # end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="50">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="51">
           
           
           <code class="ruby">end</code>

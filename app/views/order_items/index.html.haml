@@ -41,6 +41,8 @@
   =button_to "Empty cart", 'order_items/empty', class: "button btn btn-danger fl-left",  disabled: @order==nil || @order.order_items.empty?, method: :post
   =button_to "Continue shopping", root_path, method: :get, class: "btn btn-info fl-left"
   =button_to "Checkout", order_checkout_index_path, disabled: @order==nil || @order.order_items.empty?, :method => :get, class:"btn btn-success fl-right"
-  =form_for "code", url: "order_items/promocode", html: {:class => "fl-right"}, :method => :post do |f|
-    =f.text_field :code, required: false, label: false, placeholder: 'enter code here', class: "form-control fff"
-    =f.submit "Update", class: "button_to btn btn-info"
+
+
+  =form_for "code", url: {action: "promocode", id: @order.id, controller: "orders"}, html: {class: "fl-right"}, method: :post do |f|
+    =f.text_field :code, disabled: @order==nil || @order.order_items.empty?, required: false, label: false, placeholder: 'enter code here', class: "form-control fff"
+    =f.submit "Update", disabled: @order==nil || @order.order_items.empty?, class: "button_to btn btn-info"

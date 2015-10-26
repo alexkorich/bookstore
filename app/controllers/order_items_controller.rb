@@ -5,14 +5,13 @@ class OrderItemsController < ApplicationController
     @order=current_user.current_order
     @order_items=OrderItem.where(order_id: current_user.current_order.id)
   end
+
+
   def update
-    puts "TTTTTTTTTTTTTTTTTTTTTT"
-    puts request["order_item"]["quantity"]
-     puts request["id"]
     if request["order_item"]["quantity"].to_i==0
       OrderItem.destroy(request["id"])
     end
-     respond_to do |format|
+   respond_to do |format|
       if @order_item.update(order_items_params)
         format.html { redirect_to :back, notice: 'Order item was successfully updated.' }
         format.json { render :show, status: :ok, location: @order }
@@ -21,14 +20,15 @@ class OrderItemsController < ApplicationController
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
-
   end
+
+
   def empty
-    if current_user.current_order.order_items
-      current_user.current_order.order_items.destroy_all
+    if @order.order_items
+      @order.order_items.destroy_all
     end
     respond_to do |format|
-      if current_user.current_order.save
+      if @order.save
         format.html { redirect_to :back, notice: 'Order item was successfully updated.' }
         format.json { render :show, status: :ok, location: @order }
       else
@@ -37,7 +37,9 @@ class OrderItemsController < ApplicationController
       end
     end
   end
-   def destroy
+  
+
+  def destroy
    @order_item.destroy
     respond_to do |format|
       format.html { redirect_to :back, notice: 'Item was successfully destroyed.' }

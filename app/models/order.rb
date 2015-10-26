@@ -63,15 +63,30 @@ class Order < ActiveRecord::Base
       
      a+=item.price*item.quantity
     end
+    if self.multiplier
+      a=a*self.multiplier
+    end
     if self.delivery
       a=a+self.delivery.price.to_f
     end
+    self.total_price=a
     a
 	end
 
   def gift_code(code)
     if self.state =="in_progress"
-      
+      if !self.multiplier
+      gift=GiftCode.find_by(code: code)
+      if gift
+        self.multiplier=gift.multiplier
+        self.save!
+        return true
+      else
+        return "Sorry, code is wrong! :("
+      end
+    else 
+      return "Sorry, you've used one! :("
+    end
     else
       return
     end
