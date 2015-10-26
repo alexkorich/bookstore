@@ -1,15 +1,21 @@
-
-
-- @books.each do |book|
-  .book-container
-    = image_tag  book.cover.thumb
-    = link_to book.title, book
-    = "$"+book.price.to_s
-    = simple_form_for :book, remote: true, url: home_add_to_cart_path(:format => :json), method: 'post' do |f|
-      =f.input :id, as: :hidden , input_html: { value: book.id }
-      = f.input :quantity, as: :integer, :input_html => { :value => 1}, required: false, label: false
-      = f.submit "Add to Cart", class:"btn btn-warning"
-%br
+.div{style:"width:950px; background-color:lightgrey; height:100%; float:left;"}
+  - @books.each do |book|
+    .book-container{style:"width:190px; height:350px; float:left; border:1px solid black;"}
+      .cover.center-block{style:"width:100px; height:150px; margin-top:15px"}
+        = image_tag  book.cover.thumb, class: "img-responsive"
+      %div{style:"font-size:20px; ; margin-top:15px; font-family:Helvetica; margin-left:10px"}
+        = link_to book.title, book
+      %div{style:"font-size:14px; margin-bottom:10px; margin-left:10px"}
+        -if book.author
+          by
+          = link_to book.author.firstname+" "+book.author.lastname, book.author
+      %div{style:"margin-left:10px"}
+        .price{style:"font-size:18px;"}
+          = "$"+book.price.to_s
+        = simple_form_for :book, remote: true, url: home_add_to_cart_path(:format => :json), method: 'post' do |f|
+          =f.input :id, as: :hidden , input_html: { value: book.id }
+          = f.input :quantity, as: :integer, :input_html => { :value => 1, style:"width:30px"}, required: false, label: false
+          = f.submit "Add to Cart", class:"btn btn-warning btn-sm"
+  = paginate @books          
 = render 'home/categories'
 
-= paginate @books

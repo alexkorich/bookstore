@@ -1,4 +1,5 @@
-Categories:
--categories.each do |c|
-  %div
-    = link_to(c.title, c)
+%div{style:"float:left; width:100px; margin-left:10px; margin-top:20px"}
+  Categories:
+  -categories.each do |c|
+    %div
+      = link_to(c.title, c)

@@ -118,6 +118,16 @@
       %td{colspan: 4, style:"text-align:right"}
         SHIPPING:
         =@order.delivery.price
+    -if @order.multiplier
+      %tr
+        %td{colspan: 4, style:"text-align:right"}
+          YOUR DISCOUNT:
+          ="#{(1-@order.multiplier)*100} %"   
+
+    %tr
+      %td{colspan: 4, style:"text-align:right"}
+        SHIPPING:
+        =@order.delivery.price    
     %tr
       %td{colspan: 4, style:"text-align:right"}
         TOTAL:
