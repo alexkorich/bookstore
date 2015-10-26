@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151026015507) do
+ActiveRecord::Schema.define(version: 20151026194606) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,9 +96,9 @@ ActiveRecord::Schema.define(version: 20151026015507) do
 
   create_table "gift_codes", force: :cascade do |t|
     t.string   "code"
-    t.string   "multiplier"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float    "multiplier"
   end
 
   create_table "order_items", force: :cascade do |t|
