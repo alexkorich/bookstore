@@ -34,12 +34,6 @@ class BookCoverUploader < CarrierWave::Uploader::Base
   # Create different versions of your uploaded files:
 
 
-  version :medium, :from_version => :large do
-    process resize_to_limit: [350, 350]
-  end
-
-
-
   version :thumb do
     process resize_to_limit: [150, 150]
   end
