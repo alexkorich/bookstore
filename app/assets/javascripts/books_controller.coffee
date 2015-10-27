@@ -11,10 +11,8 @@ $(document).on "ajax:success", "form.book", (e, data, status, xhr) ->
     return false
 $(document).ready(->
   $(".raty").raty({ number: 10, target:"#rating_rating",
-  starOff : 'https://s3.amazonaws.com/bookstore-korich-assets/assets/star-off.png',
-  starOn  : 'https://s3.amazonaws.com/bookstore-korich-assets/assets/star-on.png',
-
-   targetType : 'score', targetKeep : true})
+  starOff: "https://s3.amazonaws.com/bookstore-korich-assets/assets/star-off.png", starOn: "https://s3.amazonaws.com/bookstore-korich-assets/assets/star-on.png",
+  targetType: 'score', targetKeep: true})
 
 
 
