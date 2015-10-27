@@ -1,7 +1,7 @@
 ActionMailer::Base.smtp_settings = {
   address: "smtp.gmail.com",
   port: 587,
-  domain: ENV["bookstore-korich.herokuapp.com"],
+  domain: ENV["MAILER_DOMAIN"],
   user_name: ENV["MAILER_USER_NAME"],
   password: ENV["MAILER_PASSWORD"],
   authentication: 'plain',
