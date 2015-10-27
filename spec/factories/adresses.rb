@@ -12,5 +12,4 @@ FactoryGirl.define do
   trait :with_country_attrs do
     country_attributes  {(FactoryGirl.attributes_for :country)}
   end 
-  end
 end
