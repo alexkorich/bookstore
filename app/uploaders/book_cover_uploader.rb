@@ -7,8 +7,8 @@ class BookCoverUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
-  # storage :fog
+  # storage :file
+  storage :fog
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -32,6 +32,14 @@ class BookCoverUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
+
+
+  version :medium, :from_version => :large do
+    process resize_to_limit: [350, 350]
+  end
+
+
+
   version :thumb do
     process resize_to_limit: [150, 150]
   end

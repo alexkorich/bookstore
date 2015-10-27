@@ -18,6 +18,11 @@ gem "haml-rails", "~> 0.9"
 gem 'carrierwave'
 gem 'kaminari'
 gem 'mini_magick'
+
+
+gem 'fog'
+
+
 gem 'wicked'
 gem 'simplecov', :require => false, :group => :test
 gem "omniauth-facebook"
