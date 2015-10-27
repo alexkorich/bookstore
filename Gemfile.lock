@@ -98,6 +98,8 @@ GEM
       i18n (~> 0.5)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
+    figaro (1.1.1)
+      thor (~> 0.14)
     fission (0.5.0)
       CFPropertyList (~> 2.2)
     fog (1.35.0)
@@ -413,6 +415,7 @@ DEPENDENCIES
   devise
   erb2haml
   faker
+  figaro
   fog
   haml-rails (~> 0.9)
   jbuilder (~> 2.0)

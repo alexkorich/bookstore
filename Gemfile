@@ -21,7 +21,7 @@ gem 'mini_magick'
 
 
 gem 'fog'
-
+gem 'figaro'
 
 gem 'wicked'
 gem 'simplecov', :require => false, :group => :test
