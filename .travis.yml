@@ -8,3 +8,4 @@ addons:
   postgresql: "9.4"
 # uncomment this line if your project needs to run something other than `rake`:
 # script: bundle exec rspec spec
+CODECLIMATE_REPO_TOKEN: cc198592dcdd4f43bb94dc26ceef8f14b19997dd54ccb8515c16ef87ea3f1099
