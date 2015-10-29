@@ -8,14 +8,14 @@ Rails.application.routes.draw do
   post 'home/add_to_cart'       => 'home#add_to_cart'
   post 'order_items/empty'      => 'order_items#empty'
   post 'orders/promocode'       => "orders#promocode"
-  resources :books
   resources :authors
+  resources :books
   resources :categories
+  resources :credit_cards
   resources :orders
-  resources :ratings
   resources :order_checkout
   resources :order_items
-  resources :credit_cards
+  resources :ratings
   resources :wish_lists
   match '*path', via: [:get, :post, :put, :delete], to: 'application#render_404'
 end
