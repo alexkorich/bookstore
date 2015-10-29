@@ -7,15 +7,15 @@ class Ability
         can :dashboard           
         can :manage, :all
       else
-        can :manage, Order,      user_id:user.id
         can :manage, CreditCard, user_id:user.id
+        can :manage, Order,      user_id:user.id
+        can :manage, OrderItem,  :order => { :user_id => user.id }
         can :manage, Rating,     user_id:user.id
         can :manage, WishList,   user_id:user.id
-        can :manage, OrderItem,  :order => { :user_id => user.id }
 
         can :read,        Author
-        can :read,        Category
         can :read,        Book
+        can :read,        Category
         can :read,        Rating
         can :read,        :order_checkout
         can :update,      :order_checkout

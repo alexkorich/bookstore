@@ -1,39 +1,41 @@
 require "rails_helper"
 
-RSpec.describe BooksController, type: :routing do
+RSpec.describe OrderItemsController, type: :routing do
   describe "routing" do
 
     it "routes to #index" do
-      expect(:get => "/books").to route_to("books#index")
+      expect(:get => "/order_items").to route_to("order_items#index")
     end
 
     it "routes to #new" do
-      expect(:get => "/books/new").to route_to("books#new")
+      expect(:get => "/order_items/new").to route_to("order_items#new")
     end
 
     it "routes to #show" do
-      expect(:get => "/books/1").to route_to("books#show", :id => "1")
+      expect(:get => "/order_items/1").to route_to("order_items#show", :id => "1")
     end
 
     it "routes to #edit" do
-      expect(:get => "/books/1/edit").to route_to("books#edit", :id => "1")
+      expect(:get => "/order_items/1/edit").to route_to("order_items#edit", :id => "1")
     end
 
     it "routes to #create" do
-      expect(:post => "/books").to route_to("books#create")
+      expect(:post => "/order_items").to route_to("order_items#create")
     end
 
     it "routes to #update via PUT" do
-      expect(:put => "/books/1").to route_to("books#update", :id => "1")
+      expect(:put => "/order_items/1").to route_to("order_items#update", :id => "1")
     end
 
     it "routes to #update via PATCH" do
-      expect(:patch => "/books/1").to route_to("books#update", :id => "1")
+      expect(:patch => "/order_items/1").to route_to("order_items#update", :id => "1")
     end
 
     it "routes to #destroy" do
-      expect(:delete => "/books/1").to route_to("books#destroy", :id => "1")
+      expect(:delete => "/order_items/1").to route_to("order_items#destroy", :id => "1")
     end
-
+     it "routes to #empty" do
+      expect(:post => "/order_items/empty").to route_to("order_items#empty")
+    end
   end
 end

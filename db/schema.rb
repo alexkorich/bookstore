@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151026211512) do
+ActiveRecord::Schema.define(version: 20151029211101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,7 +74,6 @@ ActiveRecord::Schema.define(version: 20151026211512) do
   end
 
   create_table "credit_cards", force: :cascade do |t|
-    t.integer  "number"
     t.integer  "cvv"
     t.string   "expiration_month"
     t.string   "expiration_year"
@@ -83,6 +82,7 @@ ActiveRecord::Schema.define(version: 20151026211512) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.integer  "user_id"
+    t.string   "number"
   end
 
   add_index "credit_cards", ["user_id"], name: "index_credit_cards_on_user_id", using: :btree

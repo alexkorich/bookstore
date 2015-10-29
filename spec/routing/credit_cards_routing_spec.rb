@@ -1,38 +1,38 @@
 require "rails_helper"
 
-RSpec.describe BooksController, type: :routing do
+RSpec.describe CreditCardsController, type: :routing do
   describe "routing" do
 
     it "routes to #index" do
-      expect(:get => "/books").to route_to("books#index")
+      expect(:get => "/credit_cards").to route_to("credit_cards#index")
     end
 
     it "routes to #new" do
-      expect(:get => "/books/new").to route_to("books#new")
+      expect(:get => "/credit_cards/new").to route_to("credit_cards#new")
     end
 
     it "routes to #show" do
-      expect(:get => "/books/1").to route_to("books#show", :id => "1")
+      expect(:get => "/credit_cards/1").to route_to("credit_cards#show", :id => "1")
     end
 
     it "routes to #edit" do
-      expect(:get => "/books/1/edit").to route_to("books#edit", :id => "1")
+      expect(:get => "/credit_cards/1/edit").to route_to("credit_cards#edit", :id => "1")
     end
 
     it "routes to #create" do
-      expect(:post => "/books").to route_to("books#create")
+      expect(:post => "/credit_cards").to route_to("credit_cards#create")
     end
 
     it "routes to #update via PUT" do
-      expect(:put => "/books/1").to route_to("books#update", :id => "1")
+      expect(:put => "/credit_cards/1").to route_to("credit_cards#update", :id => "1")
     end
 
     it "routes to #update via PATCH" do
-      expect(:patch => "/books/1").to route_to("books#update", :id => "1")
+      expect(:patch => "/credit_cards/1").to route_to("credit_cards#update", :id => "1")
     end
 
     it "routes to #destroy" do
-      expect(:delete => "/books/1").to route_to("books#destroy", :id => "1")
+      expect(:delete => "/credit_cards/1").to route_to("credit_cards#destroy", :id => "1")
     end
 
   end

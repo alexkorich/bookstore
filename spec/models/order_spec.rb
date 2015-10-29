@@ -12,4 +12,12 @@ RSpec.describe Order, type: :model do
 
     it {should have_many(:order_items)}
 
+    context 'active_or_adress' do
+      
+    end
+
+       context 'active_or_adress' do
+      
+    end
+
 end
