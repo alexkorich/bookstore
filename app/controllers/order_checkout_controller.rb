@@ -1,5 +1,6 @@
 class OrderCheckoutController < ApplicationController
- include Wicked::Wizard
+  authorize_resource :class => false
+ include Wicked::Wizard 
   helper_method :step_index_for, :current_step_index, :wizard_path, :next_wizard_path
   steps :adress, :delivery, :payment, :confirm, :complete
   

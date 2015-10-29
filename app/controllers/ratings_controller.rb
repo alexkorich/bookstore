@@ -1,4 +1,5 @@
 class RatingsController < ApplicationController
+  authorize_resource
   before_action :set_rating, only: [:show, :edit, :update, :destroy]
 
   # GET /ratings

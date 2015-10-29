@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  authorize_resource
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   def show

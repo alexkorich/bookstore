@@ -1,4 +1,5 @@
 class OrderItemsController < ApplicationController
+  authorize_resource
   before_action :set_order_item, only: [:show, :edit, :update, :destroy]
 
   def index
