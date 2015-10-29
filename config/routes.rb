@@ -17,5 +17,5 @@ Rails.application.routes.draw do
   resources :order_items
   resources :credit_cards
   resources :wish_lists
-  
+  match '*path', via: [:get, :post], to: 'application#render_404'
 end

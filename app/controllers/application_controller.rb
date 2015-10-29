@@ -11,21 +11,24 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from CanCan::AccessDenied do |exception|
+    puts request.format
       if user_signed_in?
         flash[:error] = "Sorry. but you are not authorized to view this page"
         session[:user_return_to] = nil
-
         redirect_to '/', content_type: "text/html"
       else
       if exception.message
-      flash[:error] = exception.message
+       flash[:error] = exception.message
       else              
         flash[:error] = "You must first login to view this page"
       end
         session[:user_return_to] = request.url
-        if request.format="js"
+        puts "WWWWWWWWWWWWWWWWWWw"
+        if request.format=="application/json" || request.format=="application/js"
+          puts "JSJSJSJJSJSJJSJSJSJSJSJSJS"
         render js: "window.location='#{new_user_session_path}'"
       else
+        puts "HTHTHTHTHHTHTHTHTH"
         redirect_to new_user_session_path, format: "html"
       end
       end 
@@ -35,6 +38,16 @@ class ApplicationController < ActionController::Base
      root_path
   end
 
+  unless Rails.application.config.consider_all_requests_local
+     rescue_from ActionController::RoutingError, with: -> { render_404  }
+   end
+
+  def render_404
+    respond_to do |format|
+      format.html { render template: 'errors/not_found', status: 404 }
+      format.all { render nothing: true, status: 404 }
+     end
+  end
 
  protected
   def configure_devise_permitted_parameters

@@ -8,13 +8,23 @@ class Ability
         can :manage, :all
       else
         can :read, :all
-
         can :create, Rating
         can :add_to_cart, Book
+
+        
+        can :bestsellers, :home
+        can :index, :home
+
+
+
+
+
+
+
     end
     else
+      can :bestsellers, :home
       can :index, :home
-      can :index, :book
   end
  
     # The first argument to `can` is the action you are giving the user
@@ -31,7 +41,7 @@ class Ability
     # For example, here the user can only update published articles.
     #
     #   can :update, Article, :published => true
-    #xxx
+    #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
   end

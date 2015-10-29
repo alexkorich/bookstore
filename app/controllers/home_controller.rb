@@ -1,9 +1,9 @@
 class HomeController < ApplicationController
-  authorize_resource
+  authorize_resource :class => false
 
-  
+
   def index
-  	
+  	puts "WWWWWWWWWWWWWWWWWWWWWWrr"
   end
 
     def bestsellers
