@@ -12,7 +12,7 @@ class Ability
         can :manage, Rating,     user_id:user.id
         can :manage, WishList,   user_id:user.id
         can :manage, OrderItem,  :order => { :user_id => user.id }
-        
+
         can :read,        Author
         can :read,        Category
         can :read,        Book
@@ -22,9 +22,6 @@ class Ability
         can :add_to_cart, :home      
         can :bestsellers, :home
         can :index,       :home
-
-
-
 
     end
     else
