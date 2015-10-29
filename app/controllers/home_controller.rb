@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
+  authorize_resource
 
+  
   def index
   	
   end
@@ -7,6 +9,8 @@ class HomeController < ApplicationController
     def bestsellers
     Book.all.limit(5)
     end
+
+
     def add_to_cart
     authorize! :add_to_cart, Book
     puts "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
@@ -22,4 +26,6 @@ class HomeController < ApplicationController
       end
     end
   end 
+
+
 end

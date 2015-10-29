@@ -8,11 +8,13 @@ class Ability
         can :manage, :all
       else
         can :read, :all
+
         can :create, Rating
         can :add_to_cart, Book
     end
     else
       can :index, :home
+      can :index, :book
   end
  
     # The first argument to `can` is the action you are giving the user
