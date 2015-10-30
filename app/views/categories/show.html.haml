@@ -1,6 +1,7 @@
 %p
-= @category.title.capitalize 
-books:
+  %h4
+    = @category.title.capitalize 
+    books:
 .div{style:"width:950px; background-color:lightgrey; height:100%; float:left;"}
   =render 'common/book_grid', books: @books
 
