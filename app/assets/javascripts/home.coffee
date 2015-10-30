@@ -8,7 +8,7 @@ $(document).ready(->
       navigationText: ["<i class='icon-chevron-left icon-white'></i>",
       "<i class='icon-chevron-right icon-white'></i>"
       ],
-      slideSpeed : 300,
-      paginationSpeed : 400,
+      slideSpeed : 900,
+      paginationSpeed : 900,
       singleItem:true);
   )

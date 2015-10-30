@@ -37,13 +37,11 @@ body {width: 1200px; background: #fff;}
 }
  
 .owl-theme .owl-controls .owl-buttons .owl-prev{
-  left: -45px;
-  top: 55px; 
+  top: 50%; 
 }
  
 .owl-theme .owl-controls .owl-buttons .owl-next{
-  right: -45px;
-  top: 55px;
+  top: 50%;
 }
 .owl-carousel.owl-theme{
 width:680px;

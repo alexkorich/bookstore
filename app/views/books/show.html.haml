@@ -6,18 +6,17 @@
 Author:
 = link_to "#{@book.author.firstname} #{@book.author.lastname}", @book.author 
 = @book.description
-= simple_form_for :book, remote:true, url: home_add_to_cart_path(:format => :json), method: 'post' do |f| 
-  =f.input :id, as: :hidden , input_html: { value: @book.id }
-  = f.input :quantity, as: :integer, :input_html => { :value => 1}, required: false, label: false 
-  = f.submit "Add to Cart",  class:"btn btn-warning"
+=render 'home/add_book', book:@book
+
 -if can? :create, Rating
   Rate this book!
+
   = form_for :rating, html:{class: "rate-form"}, remote: true, url: ratings_path(:format => :json), method: 'post' do |f|
     .raty
     = f.text_field :text_review
     = f.hidden_field :rating
     = f.hidden_field :book_id, value:@book.id  
-    = f.submit 'Leave rating', class:"btn btn-warning"
+    = f.submit 'Leave rating', class:"btn btn-warning btn-sm"
 
 Reviews:
 %div.rating

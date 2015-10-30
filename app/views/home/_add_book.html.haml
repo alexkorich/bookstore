@@ -1,0 +1,7 @@
+= simple_form_for :book , remote:true, url: home_add_to_cart_path(:format => :json), method: 'post' do |f|
+  .bookie
+    =f.input :id, as: :hidden , input_html: { value: book.id }
+  .bookie
+    = f.input :quantity, as: :integer, :input_html => { :value => 1}, required: false, label: false
+  .bookie  
+    = f.submit "Add to Cart",  class:"btn btn-warning btn-sm"
