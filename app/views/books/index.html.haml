@@ -1,18 +1,4 @@
 .div{style:"width:950px; background-color:lightgrey; height:100%; float:left;"}
-  - @books.each do |book|
-    .book-container{style:"width:190px; height:350px; float:left; border:1px solid black;"}
-      .cover.center-block{style:"width:100px; height:150px; margin-top:15px"}
-        = image_tag  book.cover.thumb, class: "img-responsive"
-      %div{style:"font-size:20px; ; margin-top:15px; font-family:Helvetica; margin-left:10px"}
-        = link_to book.title, book
-      %div{style:"font-size:14px; margin-bottom:10px; margin-left:10px"}
-        -if book.author
-          by
-          = link_to book.author.firstname+" "+book.author.lastname, book.author
-      %div{style:"margin-left:10px"}
-        .price{style:"font-size:18px;"}
-          = "$"+book.price.to_s
-        =render 'home/add_book', book:book
-  = paginate @books          
+  =render 'common/book_grid', books: @books
 = render 'home/categories'
 
