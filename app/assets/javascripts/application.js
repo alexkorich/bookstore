@@ -15,4 +15,5 @@
 
 //= require bootstrap-sprockets
 //= require jquery.raty
+//= require owl.carousel
 //= require_tree .

@@ -1,0 +1,60 @@
+/ .carousel.slide#carousel-example-generic{"data-ride": "carousel", "style" =>"max-width: 490px"}
+/   %div.carousel-inner{"role": "listbox"}
+/     - bestsellers.each_with_index do |book, index|
+/       -if index==0
+/         %div.item.active
+/           = image_tag book.cover
+/           .bookie
+/             = link_to book.title, book 
+/             = "$" +book.price.to_s
+/           = simple_form_for :book , remote:true, url: home_add_to_cart_path(:format => :json), method: 'post' do |f|
+/             .bookie
+/               =f.input :id, as: :hidden , input_html: { value: book.id }
+/             .bookie
+/               = f.input :quantity, as: :integer, :input_html => { :value => 1}, required: false, label: false
+/             .bookie  
+/               = f.submit "Add to Cart",  class:"btn btn-warning"
+/       -else  
+/         %div.item
+/           = image_tag book.cover
+/           .bookie
+/           = link_to book.title, book 
+/           = "$" +book.price.to_s
+/           = simple_form_for :book , remote:true,url: home_add_to_cart_path(:format => :json), method: 'post' do |f|
+/             .bookie
+/               =f.input :id, as: :hidden , input_html: { value: book.id }
+/             .bookie
+/               = f.input :quantity, as: :integer, :input_html => { :value => 1}, required: false, label: false
+/             .bookie  
+/               = f.submit "Add to Cart", class:"btn btn-warning"
+/   %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-example-generic", :role => "button"}
+/     %span.glyphicon.glyphicon-chevron-left{"aria-hidden" => "true"}
+/     %span.sr-only Previous  
+/   %a.right.carousel-control{"data-slide" => "next", :href => "#carousel-example-generic", :role => "button"}
+/     %span.glyphicon.glyphicon-chevron-right{"aria-hidden" => "true"}
+/     %span.sr-only Next
+/     %span.glyphicon.glyphicon-chevron-right{"aria-hidden": "true"}
+/     %span.sr-only Previous
+/ :javascript
+/   $(function(){
+/   // You used .myCarousel here. 
+/   // That's the class selector not the id selector,
+/   // which is #myCarousel
+/   $('#myCarousel').carousel();
+/   });
+
+
+.owl-carousel
+  - bestsellers.each_with_index do |book|
+    %div.item.active
+      = image_tag book.cover
+      .bookie
+        = link_to book.title, book 
+        = "$" +book.price.to_s
+      = simple_form_for :book , remote:true, url: home_add_to_cart_path(:format => :json), method: 'post' do |f|
+        .bookie
+          =f.input :id, as: :hidden , input_html: { value: book.id }
+        .bookie
+          = f.input :quantity, as: :integer, :input_html => { :value => 1}, required: false, label: false
+        .bookie  
+          = f.submit "Add to Cart",  class:"btn btn-warning"

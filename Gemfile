@@ -18,7 +18,7 @@ gem "haml-rails", "~> 0.9"
 gem 'carrierwave'
 gem 'kaminari'
 gem 'mini_magick'
-
+gem 'owlcarousel-rails'
 
 gem 'fog'
 gem 'figaro'
@@ -63,9 +63,8 @@ group :development, :test do
   gem 'byebug'
  
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
-  gem "erb2haml"
-
+  # gem 'web-console', '~> 2.0'
+  
   gem 'rspec-rails'
 end
 gem "codeclimate-test-reporter", group: :test, require: nil

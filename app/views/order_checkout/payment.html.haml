@@ -16,7 +16,7 @@
       =f.number_field :cvv, placeholder: "CVV"
     =f.submit "Save and contunue", class: "btn btn-info"
 %div{style:'float:left; width:33.3%'} 
- 
+-if current_user.credit_cards.exists?
   =form_tag wizard_path, class: "card-selection", method: :put do |f|
     =check_box("useExistingCard?", '', {}, true, false)
     =label "useExistingCard?", "Use existing card"

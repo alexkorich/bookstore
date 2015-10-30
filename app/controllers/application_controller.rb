@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from CanCan::AccessDenied do |exception|
-    puts "SSSSSSSSSSSSSSSSSSSSSSSSS"
+
     puts request.format
       if user_signed_in?
         flash[:error] = "Sorry. but you are not authorized to view this page"
@@ -24,13 +24,12 @@ class ApplicationController < ActionController::Base
         flash[:error] = "You must first login to view this page"
       end
         session[:user_return_to] = request.url
-        puts "WWWWWWWWWWWWWWWWWWw"
 
         if request.format=="application/json" || request.format=="application/javascript"
-          puts "JSJSJSJJSJSJJSJSJSJSJSJSJS"
+
         render js: "window.location='#{new_user_session_path}'"
       else
-        puts "HTHTHTHTHHTHTHTHTH"
+
         redirect_to new_user_session_path, format: "html"
       end
       end 

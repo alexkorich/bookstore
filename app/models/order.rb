@@ -98,20 +98,17 @@ class Order < ActiveRecord::Base
     i=self.order_items.find_by(book: book)
     if i 
       i.quantity+=quantity
-      
-        else
+      else
       i=self.order_items.build(price:book.price, quantity:quantity, book:book)
     end
     i.save
  	end
 
   def notify_delivery
-    
     UserMailer.delivery(User.find(self.user_id), self).deliver_now
   end
 
   def notify_pay
-    
      UserMailer.pay(User.find(self.user_id), self).deliver_now
   end
 
