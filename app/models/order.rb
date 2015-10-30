@@ -1,11 +1,11 @@
 class Order < ActiveRecord::Base
   include AASM
   validates :total_price, :state, presence:true
-  validates :billing_adress, presence: true,  if: :active_or_adress?
+  validates :billing_adress, presence: true,   if: :active_or_adress?
   validates :shipping_adress, presence: true,  if: :active_or_adress?
-  validates :delivery, presence: true, if: :active_or_delivery?
-  validates :credit_card, presence: true, if: :active_or_payment?
-  validates :completed_date, presence: true, if: :active?
+  validates :delivery, presence: true,         if: :active_or_delivery?
+  validates :credit_card, presence: true,      if: :active_or_payment?
+  validates :completed_date, presence: true,   if: :active?
   validates_associated :billing_adress, :shipping_adress, :credit_card, :delivery
 
   belongs_to :user
@@ -59,9 +59,11 @@ class Order < ActiveRecord::Base
 
 	def total_price
     a=0
-    self.order_items.each do |item|
-      
-     a+=item.price*item.quantity
+    if self.order_items
+      self.order_items.each do |item|
+        
+       a+=item.price*item.quantity
+    end
     end
     if self.multiplier
       a=a*self.multiplier
