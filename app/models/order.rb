@@ -54,26 +54,15 @@ class Order < ActiveRecord::Base
     (status || '').include?('payment') || active?
   end
 
-
-
-
-	def total_price
-    a=0
-    if self.order_items
-      self.order_items.each do |item|
-        
-       a+=item.price*item.quantity
+    def add_book(book, quantity)
+    i=self.order_items.find_by(book_id: book.id)
+    if i 
+      i.quantity= i.quantity+quantity
+      else
+      i=self.order_items.build(price:book.price, quantity:quantity, book:book)
     end
-    end
-    if self.multiplier
-      a=a*self.multiplier
-    end
-    if self.delivery
-      a=a+self.delivery.price.to_f
-    end
-    self.total_price=a
-    a
-	end
+    i.save
+  end
 
   def gift_code(code)
     if self.state =="in_progress"
@@ -94,15 +83,25 @@ class Order < ActiveRecord::Base
     end
   end
 
-	def add_book(book, quantity)
-    i=self.order_items.find_by(book: book)
-    if i 
-      i.quantity+=quantity
-      else
-      i=self.order_items.build(price:book.price, quantity:quantity, book:book)
+	def total_price
+    a=0
+    if self.order_items
+      self.order_items.each do |item|
+        
+       a+=item.price*item.quantity
     end
-    i.save
- 	end
+    end
+    if self.multiplier
+      a=a*self.multiplier
+    end
+    if self.delivery
+      a=a+self.delivery.price.to_f
+    end
+    # self.total_price=a
+    a
+	end
+
+
 
   def notify_delivery
     UserMailer.delivery(User.find(self.user_id), self).deliver_now

@@ -3,7 +3,6 @@ class HomeController < ApplicationController
 
 
   def index
-  	puts "WWWWWWWWWWWWWWWWWWWWWWrr"
   end
 
   def bestsellers
@@ -12,7 +11,6 @@ class HomeController < ApplicationController
 
 
     def add_to_cart
-      puts "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
       cart=current_user.current_order
       cart.add_book(Book.find(params[:book][:id]), params[:book][:quantity].to_i)
       respond_to do |format|
