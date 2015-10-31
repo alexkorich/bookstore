@@ -21,10 +21,10 @@ context 'admin page' do
       end
       click_button 'Log in'
     }
-  let(:to_books)
-  let(:to_authors)
-  let(:to_categories)
-  let(:to_orders)
+  # let(:to_books)
+  # let(:to_authors)
+  # let(:to_categories)
+  # let(:to_orders)
 
   it 'could be accessed if user admin' do
     signin_admin
