@@ -13,6 +13,7 @@
   =@order.total_price
 %p
   Delivery method:
-  =@order.delivery.name
+  -if @order.delivery
+    =@order.delivery.name
 
 We contact you soon to verify your order.

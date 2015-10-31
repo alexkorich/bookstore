@@ -53,6 +53,7 @@ class Order < ActiveRecord::Base
   def active_or_payment?
     (status || '').include?('payment') || active?
   end
+# why it works as it should? 
 
     def add_book(book, quantity)
     i=self.order_items.find_by(book_id: book.id)
