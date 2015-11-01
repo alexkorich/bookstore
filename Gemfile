@@ -19,26 +19,13 @@ gem 'carrierwave'
 gem 'kaminari'
 gem 'mini_magick'
 gem 'owlcarousel-rails'
-
 gem 'fog'
 gem 'figaro'
-
 gem 'wicked'
-gem 'simplecov', :require => false, :group => :test
 gem "omniauth-facebook"
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'jquery-raty-rails', github: 'bmc/jquery-raty-rails'
-# #############################
-
-
-# gem 'turbolinks'
-# gem 'jquery-turbolinks'
-
-# #############################
-
-
-
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -51,29 +38,21 @@ gem "bootstrap-sass"
 gem 'rails_admin_aasm'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
 # Use Unicorn as the app server
 # gem 'unicorn'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
- 
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  # gem 'web-console', '~> 2.0'
-  
+  gem 'factory_girl_rails'
   gem 'rspec-rails'
 end
 gem "codeclimate-test-reporter", group: :test, require: nil
-group :test, :development do
+group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'shoulda-matchers'
   gem 'faker'
-  gem 'factory_girl_rails'
-
+  gem 'selenium-webdriver'
+  gem 'launchy'
 end
 

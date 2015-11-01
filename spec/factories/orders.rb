@@ -1,8 +1,10 @@
 FactoryGirl.define do
   factory :order do
   user
-  # credit_card
-  # delivery
 
+    trait :normal do
+        credit_card
+  delivery
+    end
   end
 end
