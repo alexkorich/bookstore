@@ -1,0 +1,7 @@
+%h3 Order summary 
+Item total:
+=@order.order_items.inject(0){|sum, item| sum+=item.quantity}
+%br
+Order total:
+$
+=number_with_precision(@order.total_price, precision: 2)

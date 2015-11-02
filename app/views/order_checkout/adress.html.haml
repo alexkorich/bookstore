@@ -44,11 +44,5 @@
           %li
             =d.phone_field :phone, placeholder:"Phone"
     %div{style:'float:right; width:33.3%; height:364px'}
-      %h3 Order summary 
-      Item total:
-      =@order.order_items.inject(0){|sum, item| sum+=item.quantity}
-      %br
-      Order total:
-      $
-      =number_with_precision(@order.total_price, precision: 2)
+      =render 'order_checkout/summary'
     = submit_tag "Save and continue", class: "button_to btn btn-info"
