@@ -25,11 +25,11 @@
             %p
               =order_item.book.description
         %td
-          =order_item.book.price
+          =order_item.book.price.round(2)
         %td
           =order_item.quantity
         %td
-          =order_item.price
+          =order_item.price.round(2)
   %tfoot
     %tr
       %td{colspan: 4, style:"text-align:right"}
@@ -52,7 +52,7 @@
         %td
           =order.updated_at
         %td
-          =order.total_price
+          =order.total_price.round(2)
         %td
           =link_to "View", order
     
@@ -72,7 +72,7 @@
         %td
           =order.updated_at
         %td
-          =order.total_price
+          =order.total_price.round(2)
         %td
           =link_to "View", order
 %h4{style: "border-bottom:1px solid black"} Delivered
@@ -91,6 +91,6 @@
         %td
           =order.updated_at
         %td
-          =order.total_price
+          =order.total_price.round(2)
         %td
           =link_to "View", order
