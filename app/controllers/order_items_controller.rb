@@ -25,6 +25,7 @@ class OrderItemsController < ApplicationController
 
 
   def empty
+     @order=current_user.current_order
     if @order.order_items
       @order.order_items.destroy_all
     end
