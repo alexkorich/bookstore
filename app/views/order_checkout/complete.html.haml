@@ -104,20 +104,20 @@
             %p
               =order_item.book.description
         %td
-          =order_item.book.price
+          =number_with_precision(order_item.book.price, 2)
         %td
           =order_item.quantity
         %td
-          =order_item.price*=order_item.quantity
+          =number_with_precision(order_item.price*=order_item.quantity, 2)
   %tfoot
     %tr
       %td{colspan: 4, style:"text-align:right"}
         SUBTOTAL:
-        =@order.order_items.each.inject(0){|sum, item| sum+=item.price*item.quantity}
+        =number_with_precision(@order.order_items.each.inject(0){|sum, item| sum+=item.price*item.quantity}, 2)
     %tr
       %td{colspan: 4, style:"text-align:right"}
         SHIPPING:
-        =@order.delivery.price
+        =number_with_precision(@order.delivery.price, 2)
     -if @order.multiplier
       %tr
         %td{colspan: 4, style:"text-align:right"}
@@ -127,8 +127,8 @@
     %tr
       %td{colspan: 4, style:"text-align:right"}
         SHIPPING:
-        =@order.delivery.price    
+        =number_with_precision(@order.delivery.price, 2)    
     %tr
       %td{colspan: 4, style:"text-align:right"}
         TOTAL:
-        =@order.total_price
+        =number_with_precision(@order.total_price, 2)

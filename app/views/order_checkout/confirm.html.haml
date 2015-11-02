@@ -112,12 +112,12 @@
         %td
           =order_item.quantity
         %td
-          =order_item.price*=order_item.quantity
+          =number_with_precision(order_item.price*=order_item.quantity, 2)
   %tfoot
     %tr
       %td{colspan: 4, style:"text-align:right"}
         SUBTOTAL:
-        =@order.order_items.each.inject(0){|sum, item| sum+=item.price*item.quantity}
+        =number_with_precision(@order.order_items.each.inject(0){|sum, item| sum+=item.price*item.quantity}, 2)
     %tr
       %td{colspan: 4, style:"text-align:right"}
         SHIPPING:
@@ -131,6 +131,6 @@
     %tr
       %td{colspan: 4, style:"text-align:right"}
         TOTAL:
-        =@order.total_price
+        =number_with_precision(@order.total_price, 2)
 
 =button_to "Place order", wizard_path, class: "btn btn-info", method: :put
