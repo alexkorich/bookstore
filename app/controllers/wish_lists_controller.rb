@@ -5,7 +5,7 @@ class WishListsController < ApplicationController
   # GET /wish_lists
   # GET /wish_lists.json
   def index
-    @wish_lists = WishList.find(current_user.id)
+    @wish_lists = WishList.where(user_id: current_user.id)
   end
 
   # GET /wish_lists/1
