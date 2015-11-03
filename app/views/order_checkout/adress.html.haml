@@ -1,48 +1,19 @@
 =render "step_to"
-%div#lil{style:"height:400px"}
+%div#lil{style:"height:560px"}
   =form_tag wizard_path, :method => 'put' do
     %div{style:'float:left; width:33.3%; height:350px '}
       %h3 Billing adress
       %ul.list-group.list-unstyled{style:"margin-top:36px"}
         =fields_for :billing_adress do |d|
-          %li
-            =d.text_field :firstname, class: 'form-control', placeholder:"First name"
-          %li
-            =d.text_field :lastname, class: 'form-control', placeholder:"Last name"
-          %li
-            =d.text_field :adress, class: 'form-control', placeholder:"Adress"
-          %li  
-            =d.text_field :street, class: 'form-control', placeholder:"Street"
-          %li
-            =d.text_field :city, class: 'form-control', placeholder:"City"
-          %li
-            =d.collection_select :country_id, Country.all, :id, :name, {class: 'form-control}'}
-          %li  
-            =d.number_field :zipcode, class: 'form-control', placeholder:"Zip code"
-          %li
-            =d.phone_field :phone, class: 'form-control', placeholder:"Phone"
+          =render 'order_checkout/adresses', d: d
     %div{style:'float:left; width:33.3%; height:350px'}
       %h3 Shipping adress
       =check_box("useBilling?", '', {}, true, false)
       =label "useBilling?", "Use Billing adress"
       %ul.shipping.list-group.list-unstyled
         =fields_for :shipping_adress do |d|
-          %li
-            =d.text_field :firstname, class: 'form-control', placeholder:"First name"
-          %li
-            =d.text_field  :lastname, class: 'form-control', placeholder:"Last name"
-          %li
-            =d.text_field  :adress, class: 'form-control', placeholder:"Adress"
-          %li
-            =d.text_field  :street, class: 'form-control', placeholder:"Street"
-          %li
-            =d.text_field  :city, class: 'form-control', placeholder:"City"
-          %li
-            =d.collection_select :country_id, Country.all, :id, :name, class: 'form-control'
-          %li
-            =d.number_field :zipcode, class: 'form-control', placeholder:"Zip code"
-          %li
-            =d.phone_field :phone, class: 'form-control', placeholder:"Phone"
+          =render 'order_checkout/adresses', d: d
     %div{style:'float:right; width:33.3%; height:364px'}
       =render 'order_checkout/summary'
-    = submit_tag "Save and continue", class: "button_to btn btn-info"
+%div
+  = submit_tag "Save and continue", class: "button_to btn btn-info"
