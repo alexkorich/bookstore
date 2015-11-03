@@ -6,21 +6,21 @@
       %ul.list-group.list-unstyled{style:"margin-top:36px"}
         =fields_for :billing_adress do |d|
           %li
-            =d.text_field :firstname, placeholder:"First name"
+            =d.text_field :firstname, class: 'form-control', placeholder:"First name"
           %li
-            =d.text_field :lastname, placeholder:"Last name"
+            =d.text_field :lastname, class: 'form-control', placeholder:"Last name"
           %li
-            =d.text_field :adress, placeholder:"Adress"
+            =d.text_field :adress, class: 'form-control', placeholder:"Adress"
           %li  
-            =d.text_field :street, placeholder:"Street"
+            =d.text_field :street, class: 'form-control', placeholder:"Street"
           %li
-            =d.text_field :city, placeholder:"City"
+            =d.text_field :city, class: 'form-control', placeholder:"City"
           %li
-            =d.collection_select :country_id, Country.all, :id, :name
+            =d.collection_select :country_id, Country.all, :id, :name, {class: 'form-control}'}
           %li  
-            =d.number_field :zipcode, placeholder:"Zip code"
+            =d.number_field :zipcode, class: 'form-control', placeholder:"Zip code"
           %li
-            =d.phone_field :phone, placeholder:"Phone"
+            =d.phone_field :phone, class: 'form-control', placeholder:"Phone"
     %div{style:'float:left; width:33.3%; height:350px'}
       %h3 Shipping adress
       =check_box("useBilling?", '', {}, true, false)
@@ -28,21 +28,21 @@
       %ul.shipping.list-group.list-unstyled
         =fields_for :shipping_adress do |d|
           %li
-            =d.text_field :firstname, placeholder:"First name"
+            =d.text_field :firstname, class: 'form-control', placeholder:"First name"
           %li
-            =d.text_field  :lastname, placeholder:"Last name"
+            =d.text_field  :lastname, class: 'form-control', placeholder:"Last name"
           %li
-            =d.text_field  :adress, placeholder:"Adress"
+            =d.text_field  :adress, class: 'form-control', placeholder:"Adress"
           %li
-            =d.text_field  :street, placeholder:"Street"
+            =d.text_field  :street, class: 'form-control', placeholder:"Street"
           %li
-            =d.text_field  :city, placeholder:"City"
+            =d.text_field  :city, class: 'form-control', placeholder:"City"
           %li
-            =d.collection_select :country_id, Country.all, :id, :name
+            =d.collection_select :country_id, Country.all, :id, :name, class: 'form-control'
           %li
-            =d.number_field :zipcode, placeholder:"Zip code"
+            =d.number_field :zipcode, class: 'form-control', placeholder:"Zip code"
           %li
-            =d.phone_field :phone, placeholder:"Phone"
+            =d.phone_field :phone, class: 'form-control', placeholder:"Phone"
     %div{style:'float:right; width:33.3%; height:364px'}
       =render 'order_checkout/summary'
     = submit_tag "Save and continue", class: "button_to btn btn-info"

@@ -2,6 +2,6 @@
   .bookie
     =f.input :id, as: :hidden , input_html: { value: book.id }
   .bookie
-    = f.input :quantity, as: :integer, :input_html => { :value => 1}, required: false, label: false
+    = f.input :quantity, as: :integer, :input_html => { :value => 1, class: 'form-control'}, required: false, label: false
   .bookie  
     = f.submit "Add to Cart",  class:"btn btn-warning btn-sm"

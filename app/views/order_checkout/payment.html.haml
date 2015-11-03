@@ -3,17 +3,17 @@
   %h3 Credit card
   =form_for :credit_card, url: wizard_path, html:{class:"card-creation"},  method: :put do |f|
     %p
-      =f.number_field :number, placeholder: "Card number"
+      =f.number_field :number, placeholder: "Card number", class: 'form-control'
     %p
       Expiration date:
-    =f.select :expiration_month, 01..12
-    =f.select :expiration_year, 15..20
+    =f.select :expiration_month, 01..12, {},{ class: 'form-control'}
+    =f.select :expiration_year, 15..20, {},{ class: 'form-control'}
     %p
-      =f.text_field :firstname, placeholder: "First name" 
+      =f.text_field :firstname, placeholder: "First name" , class: 'form-control'
     %p
-      =f.text_field :lastname, placeholder: "Last name"
+      =f.text_field :lastname, placeholder: "Last name", class: 'form-control'
     %P  
-      =f.number_field :cvv, placeholder: "CVV"
+      =f.number_field :cvv, placeholder: "CVV", class: 'form-control'
     =f.submit "Save and contunue", class: "btn btn-info"
 %div{style:'float:left; width:33.3%'} 
   -if current_user.credit_cards.exists?
